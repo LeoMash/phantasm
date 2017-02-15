@@ -6,5 +6,6 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\..\src\phantasm-core\stub.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\phm_core.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\phm_core_export.h" />
   </ItemGroup>
 </Project>

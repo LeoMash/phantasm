@@ -4,4 +4,5 @@
 
 void stub (void)
 {
+   puts("Hello from stub");
 }

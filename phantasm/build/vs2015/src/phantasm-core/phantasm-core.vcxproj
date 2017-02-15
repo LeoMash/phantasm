@@ -157,6 +157,7 @@
     <ClCompile Include="..\..\..\..\src\phantasm-core\stub.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\phm_core_export.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\phm_core.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\stub.h" />
   </ItemGroup>

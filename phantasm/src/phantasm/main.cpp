@@ -1,8 +1,10 @@
 #include <stdio.h>
 
+#include "phm_core_export.h"
 
 void PrintHelp (void)
 {
+   stub();
    puts("Phantasm is console raytracer");
    puts("Usage: ");
    puts("\tTODO:");
