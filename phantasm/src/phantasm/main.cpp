@@ -1,25 +1,19 @@
-#include <stdio.h>
+#include "common.h"
 
-#include "phm_core_export.h"
-
-void PrintHelp (void)
-{
-   stub();
-   puts("Phantasm is console raytracer");
-   puts("Usage: ");
-   puts("\tTODO:");
-   // TODO: [3.10.2016 lmashinskiy]
-}
-
+#include "console.h"
+#include "tracer.h"
 
 int main (int argc, char * argv[])
 {
-   if (argc < 2) {
-      PrintHelp();
+   cnsINPUT params;
+
+   if (!ParseConsole(argc, argv, params)) {
       return 0;
    }
 
-   // TODO: [3.10.2016 lmashinskiy]
+   rtrTRACER tr;
+
+   tr.LoadSceneFromJSON(params.inFile);
 
    return 0;
 }

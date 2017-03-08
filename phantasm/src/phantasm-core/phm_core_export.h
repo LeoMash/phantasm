@@ -2,6 +2,11 @@
 #ifndef _PMH_CORE_EXPORT_H_
 #define _PMH_CORE_EXPORT_H_
 
-#include "stub.h"
+#define PHANTASMCORE_EXPORTS
+
+#include "object.h"
+#include "sphere.h"
+#include "scene.h"
+#include "vecmat.h"
 
 #endif // _PMH_CORE_EXPORT_H_

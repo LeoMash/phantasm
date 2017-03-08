@@ -2,5 +2,12 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="..\..\..\..\src\phantasm\main.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm\console.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm\tracer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\src\phantasm\console.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm\tracer.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm\common.h" />
   </ItemGroup>
 </Project>

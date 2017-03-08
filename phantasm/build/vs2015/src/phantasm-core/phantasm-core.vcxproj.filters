@@ -1,11 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\src\phantasm-core\stub.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\..\src\phantasm-core\stub.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\phm_core.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\phm_core_export.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\vecmat.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\common.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\sphere.h">
+      <Filter>objects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\object.h">
+      <Filter>objects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\scene.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\obj_handler.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\vec.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\mat.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\object.cpp">
+      <Filter>objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\scene.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\obj_handler.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="math">
+      <UniqueIdentifier>{4a6a93f4-ea1f-4769-9445-b5c68a81b7ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="objects">
+      <UniqueIdentifier>{ebf73b9a-16ef-42e2-9740-02bb76c933ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scene">
+      <UniqueIdentifier>{363b7f6b-d153-4a5e-8ee3-42c6de71ce44}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
