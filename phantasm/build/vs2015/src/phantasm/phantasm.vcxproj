@@ -160,7 +160,6 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\..\src\phantasm\console.cpp" />
     <ClCompile Include="..\..\..\..\src\phantasm\main.cpp" />
-    <ClCompile Include="..\..\..\..\src\phantasm\tracer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\phantasm-core\phantasm-core.vcxproj">
@@ -170,7 +169,6 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\..\src\phantasm\common.h" />
     <ClInclude Include="..\..\..\..\src\phantasm\console.h" />
-    <ClInclude Include="..\..\..\..\src\phantasm\tracer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

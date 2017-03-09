@@ -6,8 +6,8 @@ void PrintHelp (void)
 {
    puts("Phantasm is console raytracer");
    puts("Usage: ");
-   puts("   -i for input file with scene");
-   puts("   -u for output file");
+   puts("   --input-file -i for input file with scene");
+   puts("   --output-file -o for output file");
 }
 
 bool ParseConsole (int argc, char * argv[], cnsINPUT & params)
@@ -15,18 +15,23 @@ bool ParseConsole (int argc, char * argv[], cnsINPUT & params)
    if (argc < 5) {
       PrintHelp();
       return false;
-   }
+   }    
 
-   if (!strncmp(argv[1], "-i", 2)) {
-      params.inFile = std::string(argv[2]);
-   } else if (!strncmp(argv[1], "-o", 2)) {
-      params.outFile = std::string(argv[2]);
-   }
+   argv++;
+   argc--;
 
-   if (!strncmp(argv[3], "-i", 2)) {
-      params.inFile = std::string(argv[4]);
-   } else if (!strncmp(argv[3], "-o", 2)) {
-      params.outFile = std::string(argv[4]);
+   for (int i = 0; i < argc; i += 2) {
+      /*
+      if (!strncmp(argv[i + 1], "-i", 2)) {  // compare
+         params.inFile = std::string(argv[i + 2]);
+      } else if (!strncmp(argv[i + 1], "-o", 2)) {
+         params.outFile = std::string(argv[i + 2]);
+      } else if (!strncmp(argv[i + 1], "-output", 7)) {
+         params.outFile = std::string(argv[i + 2]);
+      } else if (!strncmp(argv[i + 1], "-input", 6)) {
+         params.outFile = std::string(argv[i + 2]);
+      }
+      */
    }
 
    if (params.outFile.length() && params.inFile.length()) {

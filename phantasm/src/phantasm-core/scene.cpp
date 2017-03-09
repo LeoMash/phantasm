@@ -1,13 +1,47 @@
 #include "common.h"
 
-#include "obj_handler.h"
+#include <vector>
+
 #include "scene.h"
 
-void rtrSCENE::AddObject (const rtrOBJECT & newObj)
+struct SCENE_IMPL {
+   SCENE_IMPL (void)
+   {
+   
+   }
+   
+   ~SCENE_IMPL (void)
+   {
+      Clear();
+   }
+
+   void Clear (void)
+   {
+      objects.clear();
+   }
+
+   void AddObject(rtrOBJECT * newObj)
+   {
+      objects.push_back(newObj);
+   }
+
+   std::vector<rtrOBJECT *> objects;
+ 
+};
+
+
+rtrSCENE::rtrSCENE (void) : pImpl(new SCENE_IMPL())
 {
-   objects->AddObject(newObj);
+
 }
-void rtrSCENE::AddObject (rtrOBJECT && newObj)
+
+rtrSCENE::~rtrSCENE (void)
 {
-   objects->AddObject(newObj);
+   pImpl->Clear();
+   delete(pImpl);
+}
+
+void rtrSCENE::AddObject (rtrOBJECT * newObj)
+{
+   pImpl->AddObject(newObj);
 }

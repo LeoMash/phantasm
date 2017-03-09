@@ -6,6 +6,9 @@
 #include <assert.h>
 #include <math.h>
 
-#define NULL nullptr
+#ifndef NULL
+#  define NULL nullptr
+#endif // NULL
+
 
 #endif // _COMMON_H_

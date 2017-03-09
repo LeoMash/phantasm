@@ -8,9 +8,9 @@
 
 class PHM_CORE_API rtrSPHERE : public rtrOBJECT {
 public:
-   rtrSPHERE (void) : rtrOBJECT(), radius(5) {}
-   rtrSPHERE (double rad, VEC pos) : rtrOBJECT(pos), radius(rad) {}
-   ~rtrSPHERE (void) {}
+   rtrSPHERE (void);
+   rtrSPHERE (double rad, VEC pos);
+   ~rtrSPHERE (void);
 private:
    double radius;
 };

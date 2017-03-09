@@ -4,16 +4,15 @@
 
 #include "phm_core.h"
 #include "object.h"
-#include "obj_handler.h"
 
+struct SCENE_IMPL;
 class PHM_CORE_API rtrSCENE {
 public:
-   rtrSCENE (void) { objects = new rtrOBJ_HANDLER; };
-   ~rtrSCENE (void) { delete(objects); };
-   void AddObject (const rtrOBJECT & newObj);
-   void AddObject (rtrOBJECT && newObj);
+   rtrSCENE (void);
+   ~rtrSCENE (void);
+   void AddObject (rtrOBJECT * newObj);
 private:
-   rtrOBJ_HANDLER * objects;
+   SCENE_IMPL * pImpl;
 };
 
 #endif // _SCENE_H_

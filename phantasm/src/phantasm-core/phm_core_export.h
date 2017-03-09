@@ -2,8 +2,6 @@
 #ifndef _PMH_CORE_EXPORT_H_
 #define _PMH_CORE_EXPORT_H_
 
-#define PHANTASMCORE_EXPORTS
-
 #include "object.h"
 #include "sphere.h"
 #include "scene.h"

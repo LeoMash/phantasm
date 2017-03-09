@@ -7,6 +7,7 @@
 struct cnsINPUT {
    std::string inFile;
    std::string outFile;
+
 };
 
 void PrintHelp (void);

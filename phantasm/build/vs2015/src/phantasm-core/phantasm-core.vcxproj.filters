@@ -16,8 +16,11 @@
     <ClInclude Include="..\..\..\..\src\phantasm-core\scene.h">
       <Filter>scene</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\src\phantasm-core\obj_handler.h">
-      <Filter>scene</Filter>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\scene_loader.h">
+      <Filter>scene_loader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\tracer.h">
+      <Filter>tracer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -33,8 +36,14 @@
     <ClCompile Include="..\..\..\..\src\phantasm-core\scene.cpp">
       <Filter>scene</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\src\phantasm-core\obj_handler.cpp">
-      <Filter>scene</Filter>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\sphere.cpp">
+      <Filter>objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\scene_loader.cpp">
+      <Filter>scene_loader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\tracer.cpp">
+      <Filter>tracer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -46,6 +55,12 @@
     </Filter>
     <Filter Include="scene">
       <UniqueIdentifier>{363b7f6b-d153-4a5e-8ee3-42c6de71ce44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scene_loader">
+      <UniqueIdentifier>{2c69a2b7-cb4a-4a0e-a2d1-bd2f84e65c3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tracer">
+      <UniqueIdentifier>{bf513b6b-2084-4bbe-817d-35f670189d12}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

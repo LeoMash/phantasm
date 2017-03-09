@@ -10,10 +10,18 @@ int main (int argc, char * argv[])
    if (!ParseConsole(argc, argv, params)) {
       return 0;
    }
+   /*
+   SCENE scn;
 
+   LoadSceneFromJSON(&scn, params.inFile);
+   
    rtrTRACER tr;
+   IMG data;
+   tr.TraceScene(scn, NULL);
 
-   tr.LoadSceneFromJSON(params.inFile);
+   SaveImgToJpeg(data, params.outFile);
+   */
+   //tr.LoadSceneFromJSON(params.inFile);
 
    return 0;
 }
