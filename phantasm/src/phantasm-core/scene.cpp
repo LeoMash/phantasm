@@ -20,28 +20,28 @@ struct SCENE_IMPL {
       objects.clear();
    }
 
-   void AddObject(rtrOBJECT * newObj)
+   void AddObject(OBJECT * newObj)
    {
       objects.push_back(newObj);
    }
 
-   std::vector<rtrOBJECT *> objects;
+   std::vector<OBJECT *> objects;
  
 };
 
 
-rtrSCENE::rtrSCENE (void) : pImpl(new SCENE_IMPL())
+SCENE::SCENE (void) : pImpl(new SCENE_IMPL())
 {
 
 }
 
-rtrSCENE::~rtrSCENE (void)
+SCENE::~SCENE (void)
 {
    pImpl->Clear();
    delete(pImpl);
 }
 
-void rtrSCENE::AddObject (rtrOBJECT * newObj)
+void SCENE::AddObject (OBJECT * newObj)
 {
    pImpl->AddObject(newObj);
 }

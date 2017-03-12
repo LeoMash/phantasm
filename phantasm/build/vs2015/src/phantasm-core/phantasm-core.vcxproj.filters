@@ -22,6 +22,9 @@
     <ClInclude Include="..\..\..\..\src\phantasm-core\tracer.h">
       <Filter>tracer</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\image.h">
+      <Filter>image</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\src\phantasm-core\vec.cpp">
@@ -45,6 +48,9 @@
     <ClCompile Include="..\..\..\..\src\phantasm-core\tracer.cpp">
       <Filter>tracer</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\image.cpp">
+      <Filter>image</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="math">
@@ -61,6 +67,9 @@
     </Filter>
     <Filter Include="tracer">
       <UniqueIdentifier>{bf513b6b-2084-4bbe-817d-35f670189d12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="image">
+      <UniqueIdentifier>{01117fbc-75a4-4174-8aa3-3c8537f44cc8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

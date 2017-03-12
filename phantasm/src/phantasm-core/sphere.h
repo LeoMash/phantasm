@@ -6,11 +6,11 @@
 
 #include "object.h"
 
-class PHM_CORE_API rtrSPHERE : public rtrOBJECT {
+class PHM_CORE_API SPHERE : public OBJECT {
 public:
-   rtrSPHERE (void);
-   rtrSPHERE (double rad, VEC pos);
-   ~rtrSPHERE (void);
+   SPHERE (void);
+   SPHERE (double rad, VEC pos);
+   ~SPHERE (void);
 private:
    double radius;
 };

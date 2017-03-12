@@ -1,20 +1,20 @@
 #include "sphere.h"
 
-rtrSPHERE::rtrSPHERE (void) 
-   : rtrOBJECT()
+SPHERE::SPHERE (void) 
+   : OBJECT()
    , radius(5)
 {
 
 }
 
-rtrSPHERE::rtrSPHERE (double rad, VEC pos) 
-   : rtrOBJECT(pos)
+SPHERE::SPHERE (double rad, VEC pos) 
+   : OBJECT(pos)
    , radius(rad)
 {
 
 }
 
-rtrSPHERE::~rtrSPHERE(void)
+SPHERE::~SPHERE(void)
 {
 
 }

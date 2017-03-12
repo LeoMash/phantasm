@@ -2,39 +2,30 @@
 
 #include "vecmat.h"
 
-VEC::VEC (double el, int size)
+VEC::VEC (double el)
 {
-   n = size;
-   data = static_cast<double *>(malloc(sizeof(double) * size));
-   for (int i = 0; i < size; i++) {
+   for (int i = 0; i < 3; i++) {
       data[i] = el;
    }
 }
 
+VEC::VEC (double x, double y, double z)
+{
+   data[0] = x;
+   data[1] = x;
+   data[2] = y;
+}
+
 VEC::VEC (void)
 {
-   n = 3;
-   data = static_cast<double *>(malloc(sizeof(double) * 3));
    for (int i = 0; i < 3; i++) {
       data[i] = 0;
    }
 }
 
-
-VEC::VEC (const double * dat, int size)
-{
-   n = size;
-   data = static_cast<double *>(malloc(sizeof(double) * size));
-   for (int i = 0; i < size; i++) {
-      data[i] = dat[i];
-   }
-}
-
 VEC::VEC (const VEC & r)
 {
-   n = r.n;
-   data = static_cast<double *>(malloc(sizeof(double) * n));
-   for (int i = 0; i < n; ++i) {
+   for (int i = 0; i < 3; ++i) {
       data[i] = r.data[i];
    }
 }
@@ -46,10 +37,7 @@ VEC::~VEC (void)
 
 VEC & VEC::operator= (const VEC & r)
 {
-   free(data);
-   n = r.n;
-   data = static_cast<double *>(malloc(sizeof(double) * n));
-   for (int i = 0; i < n; ++i) {
+   for (int i = 0; i < 3; ++i) {
       data[i] = r.data[i];
    }
 
@@ -66,11 +54,11 @@ double VEC::operator[] (int index) const
    return data[index];
 }
 
-VEC VEC::operator* (double d)
+VEC VEC::operator* (double d) const
 {
    VEC res = *this;
 
-   for (int i = 0; i < n; ++i) {
+   for (int i = 0; i < 3; ++i) {
       res.data[i] *= d;
    }
 
@@ -80,7 +68,7 @@ VEC VEC::operator* (double d)
 VEC & VEC::operator*= (double d)
 {
 
-   for (int i = 0; i < n; ++i) {
+   for (int i = 0; i < 3; ++i) {
       data[i] *= d;
    }
 
@@ -92,60 +80,80 @@ VEC VEC::operator+ (const VEC & r) const
 
    VEC res(*this);
 
-   for (int i = 0; i < n; ++i) {
+   for (int i = 0; i < 3; ++i) {
       res[i] += r[i];
    }
 
    return res;
 }
 
-VEC VEC::operator+= (const VEC & r)
+VEC & VEC::operator+= (const VEC & r)
 {
-   for (int i = 0; i < n; ++i) {
+   for (int i = 0; i < 3; ++i) {
       data[i] += r.data[i];
    }
 
-   return (*this);
+   return *this;
 }
 
-double VEC::scalProd (const VEC & r) const
-{
-   double res = 0.0;
-
-   for (int i = 0; i < n; ++i) {
-      res += r[i] * data[i];
-   }
-
-   return res;
-}
-
-VEC VEC::operator- (const VEC & r)
+VEC VEC::operator- (const VEC & r) const
 {
    VEC res(*this);
 
-   for (int i = 0; i < n; ++i) {
+   for (int i = 0; i < 3; ++i) {
       res[i] -= r[i];
    }
 
    return res;
 }
 
-double VEC::norm (void)
+double VEC::Norm (void) const
 {
    double res = 0.0;
 
-   for (int i = 0; i < n; ++i) {
-      res += fabs(data[i]);
+   for (int i = 0; i < 3; ++i) {
+      res += data[i];
+   }
+
+   res = sqrt(fabs(res));
+
+   return res;
+}
+
+VEC & VEC::Normalize (void)
+{
+   double n = Norm();
+
+   for (int i = 0; i < 3; ++i) {
+      data[i] /= n;
+   }
+
+   return *this;
+}
+
+double VEC::Dot (const VEC & r) const
+{
+   double res = 0.0;
+
+   for (int i = 0; i < 3; ++i) {
+      res += r.data[i] * data[i];
    }
 
    return res;
+}
+
+VEC VEC::Cross (const VEC & r) const
+{
+   return VEC(data[1] * r.data[2] - data[2] * r.data[1], 
+              data[0] * r.data[2] - data[2] * r.data[0],
+              data[0] * r.data[1] - data[1] * r.data[0]);
 }
 
 VEC VEC::operator/ (double d) const
 {
    VEC res(*this);
 
-   for (int i = 0; i < n; ++i) {
+   for (int i = 0; i < 3; ++i) {
       res[i] /= d;
    }
 

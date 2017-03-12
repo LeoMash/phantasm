@@ -2,17 +2,17 @@
 
 #include "object.h"
 
-rtrOBJECT::rtrOBJECT (void) : position(VEC(0.0, 3))
+OBJECT::OBJECT (void) : position(VEC())
 {
 
 }
 
-rtrOBJECT::rtrOBJECT (VEC pos) : position(pos)
+OBJECT::OBJECT (VEC pos) : position(pos)
 {
 
 }
 
-rtrOBJECT::~rtrOBJECT (void)
+OBJECT::~OBJECT (void)
 {
 
 }

@@ -6,11 +6,11 @@
 
 #include "vecmat.h"
 
-class PHM_CORE_API rtrOBJECT {
+class PHM_CORE_API OBJECT {
 public:
-   rtrOBJECT (void);
-   rtrOBJECT (VEC pos);
-   virtual ~rtrOBJECT (void);
+   OBJECT (void);
+   OBJECT (VEC pos);
+   virtual ~OBJECT (void);
 private:
    VEC position;
 };

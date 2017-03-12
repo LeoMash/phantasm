@@ -1,26 +1,26 @@
 #include "common.h"
 
 #include "console.h"
-#include "tracer.h"
+#include "phm_core_export.h"
 
 int main (int argc, char * argv[])
 {
-   cnsINPUT params;
+   PARAM params;
 
    if (!ParseConsole(argc, argv, params)) {
       return 0;
    }
-   /*
+   
    SCENE scn;
 
-   LoadSceneFromJSON(&scn, params.inFile);
+   LoadSceneFromJSON(scn, params.inFile);
    
-   rtrTRACER tr;
+   TRACER tr;
    IMG data;
-   tr.TraceScene(scn, NULL);
+   tr.TraceScene(scn, data);
 
-   SaveImgToJpeg(data, params.outFile);
-   */
+   //SaveImgToJpeg(data, params.outFile);
+
    //tr.LoadSceneFromJSON(params.inFile);
 
    return 0;

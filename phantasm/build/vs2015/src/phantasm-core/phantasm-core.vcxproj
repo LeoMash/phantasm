@@ -154,6 +154,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\image.cpp" />
     <ClCompile Include="..\..\..\..\src\phantasm-core\mat.cpp" />
     <ClCompile Include="..\..\..\..\src\phantasm-core\object.cpp" />
     <ClCompile Include="..\..\..\..\src\phantasm-core\scene.cpp" />
@@ -164,6 +165,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\src\phantasm-core\common.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\image.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\object.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\phm_core_export.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\phm_core.h" />

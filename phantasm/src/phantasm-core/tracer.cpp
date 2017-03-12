@@ -3,17 +3,17 @@
 #include "tracer.h"
 
 
-rtrTRACER::rtrTRACER (void)
+TRACER::TRACER (void)
 {
 
 }
 
-rtrTRACER::~rtrTRACER (void)
+TRACER::~TRACER (void)
 {
 
 }
 
-void rtrTRACER::TraceScene (const rtrSCENE & scn, char * outFile)
+void TRACER::TraceScene (const SCENE & scn, IMG & img)
 {
 
 }

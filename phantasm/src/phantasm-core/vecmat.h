@@ -4,69 +4,63 @@
 
 #include "phm_core.h"
 
-class VEC;
-
-class PHM_CORE_API MAT {
-public:
-   void allocmat (void);
-   void freemat (void);
-   MAT (void);
-   MAT (double el, int size);
-   MAT (const MAT & r);
-   ~MAT (void);
-
-   MAT & operator= (const MAT & r);
-
-   MAT & operator+= (const MAT & r);
-   MAT operator+ (const MAT & r) const;
-
-   MAT & operator-= (const MAT & r);
-   MAT operator- (const MAT & r) const;
-
-   MAT & operator*= (const MAT & r);
-   MAT operator* (const MAT & r) const;
-
-   MAT & operator*= (const double & r);
-   MAT operator* (const double & r) const;
-
-   VEC operator* (const VEC & r) const;
-
-   MAT operator- (void);
-
-   double getEl (int row, int column) const;
-   void setEl (int row, int column, double el);
-   int getN (void) const;
-   double norm (void) const;
-   MAT transpose (void) const;
-   VEC getColumn (int column) const;
-private:
-   int n;
-   double ** data;
-};
-
 class PHM_CORE_API VEC {
 public:
-   VEC (void);
-   VEC (double el, int size);
-   VEC (const double * dat, int size);
-   VEC (const VEC & r);
+   VEC  (void);
+   VEC  (double el);
+   VEC  (double x, double y, double z);
+   VEC  (const VEC & r);
    ~VEC (void);
 
-   VEC & operator= (const VEC & r);
-   double & operator[] (int index);
-   double operator[] (int index) const;
-   VEC operator* (double d);
-   VEC operator/ (double d) const;
+   VEC &     operator=   (const VEC & r);
+   double &  operator[]  (int index);
+   double    operator[]  (int index) const;
+   VEC       operator*   (double d) const;
+   VEC       operator/   (double d) const;
+   VEC &     operator*=  (double d);
+   VEC       operator+   (const VEC & r) const;
+   VEC &     operator+=  (const VEC & r);
+   VEC       operator-   (const VEC & r) const;
+   
+   double Norm (void) const;
+   VEC &  Normalize (void);
 
-   VEC & operator*= (double d);
-   VEC operator+ (const VEC & r) const;
-   VEC operator+= (const VEC & r);
-   VEC operator- (const VEC & r);
-   double scalProd (const VEC & r) const;
-   double norm (void);
+   double Dot   (const VEC & r) const;
+   VEC    Cross (const VEC & r) const;
 private:
-   int n;
-   double * data;
+   double data[3];
+};
+
+class PHM_CORE_API MATR {
+public:
+   MATR  (void);
+   MATR  (double el);
+   MATR  (const MATR & r);
+   ~MATR (void);
+
+   MATR & operator=  (const MATR & r);
+
+   MATR & operator+= (const MATR & r);
+   MATR   operator+  (const MATR & r) const;
+
+   MATR & operator-= (const MATR & r);
+   MATR   operator-  (const MATR & r) const;
+
+   MATR & operator*= (const MATR & r);
+   MATR   operator*  (const MATR & r) const;
+
+   MATR & operator*= (const double & r);
+   MATR   operator*  (const double & r) const;
+          
+   VEC    operator*  (const VEC & r) const;
+          
+   MATR   operator-  (void);
+
+   double GetEl (int row, int column) const;
+   void SetEl (int row, int column, double el);
+   MATR Transpose (void) const;
+private:
+   double data[4][4];
 };
 
 #endif // _VECMAT_H_

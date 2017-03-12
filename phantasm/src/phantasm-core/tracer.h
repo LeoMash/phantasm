@@ -2,13 +2,15 @@
 #ifndef _TRACER_H_
 #define _TRACER_H_
 
+#include "phm_core.h"
 #include "scene.h"
+#include "image.h"
 
-class rtrTRACER {
+class PHM_CORE_API TRACER {
 public:
-   rtrTRACER (void);
-   ~rtrTRACER (void);
-   void TraceScene (const rtrSCENE & scn, char * outFile); // IMG
+   TRACER (void);
+   ~TRACER (void);
+   void TraceScene (const SCENE & scn, IMG & img);
 private:
 };
 

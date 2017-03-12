@@ -10,7 +10,7 @@ void PrintHelp (void)
    puts("   --output-file -o for output file");
 }
 
-bool ParseConsole (int argc, char * argv[], cnsINPUT & params)
+bool ParseConsole (int argc, char * argv[], PARAM & params)
 {
    if (argc < 5) {
       PrintHelp();
@@ -21,17 +21,11 @@ bool ParseConsole (int argc, char * argv[], cnsINPUT & params)
    argc--;
 
    for (int i = 0; i < argc; i += 2) {
-      /*
-      if (!strncmp(argv[i + 1], "-i", 2)) {  // compare
+      if (!strcmp(argv[i + 1], "-i") || !strcmp(argv[i + 1], "-input")) {
          params.inFile = std::string(argv[i + 2]);
-      } else if (!strncmp(argv[i + 1], "-o", 2)) {
+      } else if (!strcmp(argv[i + 1], "-o") || !strcmp(argv[i + 1], "-output")) {
          params.outFile = std::string(argv[i + 2]);
-      } else if (!strncmp(argv[i + 1], "-output", 7)) {
-         params.outFile = std::string(argv[i + 2]);
-      } else if (!strncmp(argv[i + 1], "-input", 6)) {
-         params.outFile = std::string(argv[i + 2]);
-      }
-      */
+      } 
    }
 
    if (params.outFile.length() && params.inFile.length()) {

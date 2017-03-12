@@ -4,13 +4,13 @@
 
 #include <string>
 
-struct cnsINPUT {
+struct PARAM {
    std::string inFile;
    std::string outFile;
 
 };
 
 void PrintHelp (void);
-bool ParseConsole (int argc, char * argv[], cnsINPUT & params);
+bool ParseConsole (int argc, char * argv[], PARAM & params);
 
 #endif // _CONSOLE_H_
