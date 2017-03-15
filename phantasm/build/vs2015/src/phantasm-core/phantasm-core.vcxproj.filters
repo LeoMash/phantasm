@@ -22,7 +22,7 @@
     <ClInclude Include="..\..\..\..\src\phantasm-core\tracer.h">
       <Filter>tracer</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\src\phantasm-core\image.h">
+    <ClInclude Include="..\..\..\..\src\phantasm-core\image_storage.h">
       <Filter>image</Filter>
     </ClInclude>
   </ItemGroup>
@@ -48,7 +48,7 @@
     <ClCompile Include="..\..\..\..\src\phantasm-core\tracer.cpp">
       <Filter>tracer</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\src\phantasm-core\image.cpp">
+    <ClCompile Include="..\..\..\..\src\phantasm-core\image_storage.cpp">
       <Filter>image</Filter>
     </ClCompile>
   </ItemGroup>

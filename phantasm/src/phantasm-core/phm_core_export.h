@@ -7,7 +7,7 @@
 #include "sphere.h"
 #include "scene.h"
 #include "vecmat.h"
-#include "image.h"
+#include "image_storage.h"
 #include "scene_loader.h"
 #include "tracer.h"
 

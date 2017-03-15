@@ -12,8 +12,8 @@ VEC::VEC (double el)
 VEC::VEC (double x, double y, double z)
 {
    data[0] = x;
-   data[1] = x;
-   data[2] = y;
+   data[1] = y;
+   data[2] = z;
 }
 
 VEC::VEC (void)
@@ -32,7 +32,6 @@ VEC::VEC (const VEC & r)
 
 VEC::~VEC (void)
 {
-   free(data);
 }
 
 VEC & VEC::operator= (const VEC & r)
@@ -112,7 +111,7 @@ double VEC::Norm (void) const
    double res = 0.0;
 
    for (int i = 0; i < 3; ++i) {
-      res += data[i];
+      res += data[i] * data[i];
    }
 
    res = sqrt(fabs(res));
@@ -145,7 +144,7 @@ double VEC::Dot (const VEC & r) const
 VEC VEC::Cross (const VEC & r) const
 {
    return VEC(data[1] * r.data[2] - data[2] * r.data[1], 
-              data[0] * r.data[2] - data[2] * r.data[0],
+              data[2] * r.data[0] - data[0] * r.data[2],
               data[0] * r.data[1] - data[1] * r.data[0]);
 }
 

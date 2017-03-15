@@ -10,6 +10,7 @@ MATR::MATR (double el)
       }
       data[i][i] = el;
    }
+   data[3][3] = 1;
 }
 
 MATR::MATR (void)
@@ -139,8 +140,8 @@ VEC MATR::operator* (const VEC & r) const
 {
    VEC res(0);
 
-   for (int i = 0; i < 4; ++i) {
-      for (int j = 0; j < 4; ++j) {
+   for (int i = 0; i < 3; ++i) {
+      for (int j = 0; j < 3; ++j) {
          res[i] += data[i][j] * r[j];
       }
    }

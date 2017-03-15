@@ -16,7 +16,7 @@ int main (int argc, char * argv[])
    LoadSceneFromJSON(scn, params.inFile);
    
    TRACER tr;
-   IMG data;
+   IMAGE_STORAGE data;
    tr.TraceScene(scn, data);
 
    //SaveImgToJpeg(data, params.outFile);

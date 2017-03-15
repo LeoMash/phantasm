@@ -10,6 +10,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "phantasm", "phantasm\phanta
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "phantasm-core", "phantasm-core\phantasm-core.vcxproj", "{917B79BC-712C-4764-92CC-E7045FCE4D28}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "math-tester", "math-tester\math-tester.vcxproj", "{320875D6-2394-4EA0-8852-32EE8F83BD7A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -34,6 +36,14 @@ Global
 		{917B79BC-712C-4764-92CC-E7045FCE4D28}.Release|x64.Build.0 = Release|x64
 		{917B79BC-712C-4764-92CC-E7045FCE4D28}.Release|x86.ActiveCfg = Release|Win32
 		{917B79BC-712C-4764-92CC-E7045FCE4D28}.Release|x86.Build.0 = Release|Win32
+		{320875D6-2394-4EA0-8852-32EE8F83BD7A}.Debug|x64.ActiveCfg = Debug|x64
+		{320875D6-2394-4EA0-8852-32EE8F83BD7A}.Debug|x64.Build.0 = Debug|x64
+		{320875D6-2394-4EA0-8852-32EE8F83BD7A}.Debug|x86.ActiveCfg = Debug|Win32
+		{320875D6-2394-4EA0-8852-32EE8F83BD7A}.Debug|x86.Build.0 = Debug|Win32
+		{320875D6-2394-4EA0-8852-32EE8F83BD7A}.Release|x64.ActiveCfg = Release|x64
+		{320875D6-2394-4EA0-8852-32EE8F83BD7A}.Release|x64.Build.0 = Release|x64
+		{320875D6-2394-4EA0-8852-32EE8F83BD7A}.Release|x86.ActiveCfg = Release|Win32
+		{320875D6-2394-4EA0-8852-32EE8F83BD7A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

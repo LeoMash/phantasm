@@ -13,7 +13,7 @@ TRACER::~TRACER (void)
 
 }
 
-void TRACER::TraceScene (const SCENE & scn, IMG & img)
+void TRACER::TraceScene (const SCENE & scn, IMAGE_STORAGE & img)
 {
 
 }
