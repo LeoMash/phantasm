@@ -1,5 +1,7 @@
 #include <gtest\gtest.h>
-    
+
+#include <conio.h>
+
 #include "phm_core_export.h"
 
 TEST (vec, default_constructor)
@@ -111,3 +113,13 @@ TEST (matr, vec_mul_matr)
    ASSERT_EQ(15, c[2]);
 }
 
+int main (int argc, char **argv) 
+{
+   testing::InitGoogleTest(&argc, argv);
+
+   int testsResult = RUN_ALL_TESTS();
+
+   _getch();
+
+   return testsResult;
+}

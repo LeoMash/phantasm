@@ -1,11 +1,11 @@
 #include "common.h"
 
-#include "console.h"
+#include "console\console.h"
 #include "phm_core_export.h"
 
 int main (int argc, char * argv[])
 {
-   PARAM params;
+   CONSOLE_PARAMETERS params;
 
    if (!ParseConsole(argc, argv, params)) {
       return 0;
@@ -13,13 +13,13 @@ int main (int argc, char * argv[])
    
    SCENE scn;
 
-   LoadSceneFromJSON(scn, params.inFile);
+   LoadSceneFromJSON(scn, params.sceneFile);
    
    TRACER tr;
-   IMAGE_STORAGE data;
-   tr.TraceScene(scn, data);
+   IMAGE_STORAGE img;
+   tr.TraceScene(scn, img);
 
-   //SaveImgToJpeg(data, params.outFile);
+   SaveImageToJpeg(img, params.outputImage);
 
    //tr.LoadSceneFromJSON(params.inFile);
 

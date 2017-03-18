@@ -10,7 +10,7 @@ void PrintHelp (void)
    puts("   --output-file -o for output file");
 }
 
-bool ParseConsole (int argc, char * argv[], PARAM & params)
+bool ParseConsole (int argc, char * argv[], CONSOLE_PARAMETERS & params)
 {
    if (argc < 5) {
       PrintHelp();
@@ -22,13 +22,13 @@ bool ParseConsole (int argc, char * argv[], PARAM & params)
 
    for (int i = 0; i < argc; i += 2) {
       if (!strcmp(argv[i + 1], "-i") || !strcmp(argv[i + 1], "-input")) {
-         params.inFile = std::string(argv[i + 2]);
+         params.sceneFile = std::string(argv[i + 2]);
       } else if (!strcmp(argv[i + 1], "-o") || !strcmp(argv[i + 1], "-output")) {
-         params.outFile = std::string(argv[i + 2]);
+         params.outputImage = std::string(argv[i + 2]);
       } 
    }
 
-   if (params.outFile.length() && params.inFile.length()) {
+   if (params.outputImage.length() && params.sceneFile.length()) {
       return true;
    }
 

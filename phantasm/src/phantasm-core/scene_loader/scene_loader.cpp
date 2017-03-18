@@ -1,6 +1,6 @@
 #include "scene_loader.h"
 
-#include "sphere.h"
+#include "..\objects\sphere.h"
 
 void PHM_CORE_API LoadSceneFromJSON (SCENE & scn, std::string fileName)
 {

@@ -2,9 +2,9 @@
 #ifndef _OBJECT_H_
 #define _OBJECT_H_
 
-#include "phm_core.h"
+#include "..\phm_core.h"
 
-#include "vecmat.h"
+#include "..\math\vecmat.h"
 
 class PHM_CORE_API OBJECT {
 public:

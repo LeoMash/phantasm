@@ -2,8 +2,8 @@
 #ifndef _SCENE_H_
 #define _SCENE_H_
 
-#include "phm_core.h"
-#include "object.h"
+#include "..\phm_core.h"
+#include "..\objects\object.h"
 
 struct SCENE_IMPL;
 class PHM_CORE_API SCENE {

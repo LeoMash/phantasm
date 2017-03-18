@@ -2,9 +2,9 @@
 #ifndef _TRACER_H_
 #define _TRACER_H_
 
-#include "phm_core.h"
-#include "scene.h"
-#include "image_storage.h"
+#include "..\phm_core.h"
+#include "..\scene\scene.h"
+#include "..\image_storage\image_storage.h"
 
 class PHM_CORE_API TRACER {
 public:

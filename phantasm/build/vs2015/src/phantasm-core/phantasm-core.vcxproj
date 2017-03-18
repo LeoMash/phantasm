@@ -154,26 +154,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\src\phantasm-core\image_storage.cpp" />
-    <ClCompile Include="..\..\..\..\src\phantasm-core\mat.cpp" />
-    <ClCompile Include="..\..\..\..\src\phantasm-core\object.cpp" />
-    <ClCompile Include="..\..\..\..\src\phantasm-core\scene.cpp" />
-    <ClCompile Include="..\..\..\..\src\phantasm-core\scene_loader.cpp" />
-    <ClCompile Include="..\..\..\..\src\phantasm-core\sphere.cpp" />
-    <ClCompile Include="..\..\..\..\src\phantasm-core\tracer.cpp" />
-    <ClCompile Include="..\..\..\..\src\phantasm-core\vec.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\image_saver\image_saver.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\image_storage\image_storage.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\math\mat.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\objects\object.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\scene\scene.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\scene_loader\scene_loader.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\objects\sphere.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\tracer\tracer.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\math\vec.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\src\phantasm-core\common.h" />
-    <ClInclude Include="..\..\..\..\src\phantasm-core\image_storage.h" />
-    <ClInclude Include="..\..\..\..\src\phantasm-core\object.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\image_saver\image_saver.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\image_storage\image_storage.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\objects\object.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\phm_core_export.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\phm_core.h" />
-    <ClInclude Include="..\..\..\..\src\phantasm-core\scene.h" />
-    <ClInclude Include="..\..\..\..\src\phantasm-core\scene_loader.h" />
-    <ClInclude Include="..\..\..\..\src\phantasm-core\sphere.h" />
-    <ClInclude Include="..\..\..\..\src\phantasm-core\tracer.h" />
-    <ClInclude Include="..\..\..\..\src\phantasm-core\vecmat.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\scene\scene.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\scene_loader\scene_loader.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\objects\sphere.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\tracer\tracer.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\math\vecmat.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

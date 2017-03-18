@@ -2,7 +2,7 @@
 #ifndef _SPHERE_H_
 #define _SPHERE_H_
 
-#include "phm_core.h"
+#include "..\phm_core.h"
 
 #include "object.h"
 

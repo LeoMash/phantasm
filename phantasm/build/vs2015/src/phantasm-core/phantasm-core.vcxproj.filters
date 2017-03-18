@@ -3,53 +3,59 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\..\src\phantasm-core\phm_core.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\phm_core_export.h" />
-    <ClInclude Include="..\..\..\..\src\phantasm-core\vecmat.h">
+    <ClInclude Include="..\..\..\..\src\phantasm-core\common.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\objects\object.h">
+      <Filter>objects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\math\vecmat.h">
       <Filter>math</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\src\phantasm-core\common.h" />
-    <ClInclude Include="..\..\..\..\src\phantasm-core\sphere.h">
+    <ClInclude Include="..\..\..\..\src\phantasm-core\objects\sphere.h">
       <Filter>objects</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\src\phantasm-core\object.h">
-      <Filter>objects</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\src\phantasm-core\scene.h">
-      <Filter>scene</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\src\phantasm-core\scene_loader.h">
-      <Filter>scene_loader</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\src\phantasm-core\tracer.h">
+    <ClInclude Include="..\..\..\..\src\phantasm-core\tracer\tracer.h">
       <Filter>tracer</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\src\phantasm-core\image_storage.h">
-      <Filter>image</Filter>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\scene\scene.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\scene_loader\scene_loader.h">
+      <Filter>scene_loader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\image_storage\image_storage.h">
+      <Filter>image_storage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\image_saver\image_saver.h">
+      <Filter>image_saver</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\src\phantasm-core\vec.cpp">
-      <Filter>math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\src\phantasm-core\mat.cpp">
-      <Filter>math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\src\phantasm-core\object.cpp">
+    <ClCompile Include="..\..\..\..\src\phantasm-core\objects\object.cpp">
       <Filter>objects</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\src\phantasm-core\scene.cpp">
-      <Filter>scene</Filter>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\image_storage\image_storage.cpp">
+      <Filter>image_storage</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\src\phantasm-core\sphere.cpp">
+    <ClCompile Include="..\..\..\..\src\phantasm-core\math\mat.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\math\vec.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\objects\sphere.cpp">
       <Filter>objects</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\src\phantasm-core\scene_loader.cpp">
-      <Filter>scene_loader</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\src\phantasm-core\tracer.cpp">
+    <ClCompile Include="..\..\..\..\src\phantasm-core\tracer\tracer.cpp">
       <Filter>tracer</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\src\phantasm-core\image_storage.cpp">
-      <Filter>image</Filter>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\scene\scene.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\scene_loader\scene_loader.cpp">
+      <Filter>scene_loader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\image_saver\image_saver.cpp">
+      <Filter>image_saver</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -68,8 +74,11 @@
     <Filter Include="tracer">
       <UniqueIdentifier>{bf513b6b-2084-4bbe-817d-35f670189d12}</UniqueIdentifier>
     </Filter>
-    <Filter Include="image">
+    <Filter Include="image_storage">
       <UniqueIdentifier>{01117fbc-75a4-4174-8aa3-3c8537f44cc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="image_saver">
+      <UniqueIdentifier>{c069e356-5669-4197-b55a-359960544f48}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

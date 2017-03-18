@@ -21,8 +21,9 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{320875D6-2394-4EA0-8852-32EE8F83BD7A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>mathtester</RootNamespace>
+    <RootNamespace>phantasm-core-tester</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>phantasm-core-tester</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -167,7 +168,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\src\math-tester\math_test.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core-tester\math_test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\phantasm-core\phantasm-core.vcxproj">
