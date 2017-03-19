@@ -2,12 +2,11 @@
 
 #include "vecmat.h"
 
-VEC::VEC (double el)
-{
-   for (int i = 0; i < 3; i++) {
-      data[i] = el;
-   }
-}
+const VEC VEC_UNIT_X(1, 0, 0);
+const VEC VEC_UNIT_Y(0, 1, 0);
+const VEC VEC_UNIT_Z(0, 0, 1);
+const VEC VEC_IDENTITY(1, 1, 1);
+const VEC VEC_NULL(0, 0, 0);
 
 VEC::VEC (double x, double y, double z)
 {

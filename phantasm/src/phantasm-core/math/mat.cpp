@@ -2,13 +2,15 @@
 
 #include "vecmat.h"
 
-MATR::MATR (double el)
+const MATR MATR_IDENTITY(1);
+
+MATR::MATR (double diagEl)
 {
    for (int i = 0; i < 4; ++i) {
       for (int j = 0; j < 4; ++j) {
          data[i][j] = 0;
       }
-      data[i][i] = el;
+      data[i][i] = diagEl;
    }
    data[3][3] = 1;
 }
@@ -138,7 +140,7 @@ MATR MATR::operator* (const double & r) const
 
 VEC MATR::operator* (const VEC & r) const
 {
-   VEC res(0);
+   VEC res(VEC_NULL);
 
    for (int i = 0; i < 3; ++i) {
       for (int j = 0; j < 3; ++j) {

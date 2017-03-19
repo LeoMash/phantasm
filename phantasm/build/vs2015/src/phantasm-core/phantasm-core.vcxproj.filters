@@ -28,6 +28,9 @@
     <ClInclude Include="..\..\..\..\src\phantasm-core\image_saver\image_saver.h">
       <Filter>image_saver</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\3rd-party\jpeg-compressor\jpge.h">
+      <Filter>jpeg-compressor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\src\phantasm-core\objects\object.cpp">
@@ -57,6 +60,9 @@
     <ClCompile Include="..\..\..\..\src\phantasm-core\image_saver\image_saver.cpp">
       <Filter>image_saver</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\3rd-party\jpeg-compressor\jpge.cpp">
+      <Filter>jpeg-compressor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="math">
@@ -79,6 +85,9 @@
     </Filter>
     <Filter Include="image_saver">
       <UniqueIdentifier>{c069e356-5669-4197-b55a-359960544f48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="jpeg-compressor">
+      <UniqueIdentifier>{f399d9a2-7bc9-43fc-8ac7-9432b0dc5e2b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

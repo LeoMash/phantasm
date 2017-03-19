@@ -21,10 +21,10 @@ bool ParseConsole (int argc, char * argv[], CONSOLE_PARAMETERS & params)
    argc--;
 
    for (int i = 0; i < argc; i += 2) {
-      if (!strcmp(argv[i + 1], "-i") || !strcmp(argv[i + 1], "-input")) {
-         params.sceneFile = std::string(argv[i + 2]);
-      } else if (!strcmp(argv[i + 1], "-o") || !strcmp(argv[i + 1], "-output")) {
-         params.outputImage = std::string(argv[i + 2]);
+      if (!strcmp(argv[i], "-i") || !strcmp(argv[i], "-input")) {
+         params.sceneFile = std::string(argv[i + 1]);
+      } else if (!strcmp(argv[i], "-o") || !strcmp(argv[i], "-output")) {
+         params.outputImage = std::string(argv[i + 1]);
       } 
    }
 

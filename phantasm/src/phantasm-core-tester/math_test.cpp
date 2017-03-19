@@ -7,14 +7,9 @@
 TEST (vec, default_constructor)
 {
    VEC v;
-   ASSERT_EQ(0, v[1]);
-}
-
-
-TEST (vec, one_element_constructor)
-{
-   VEC v(30);
-   ASSERT_EQ(30, v[1]);
+   EXPECT_EQ(0, v[0]);
+   EXPECT_EQ(0, v[1]);
+   EXPECT_EQ(0, v[2]);
 }
 
 TEST (vec, copy_constructor)
@@ -22,7 +17,9 @@ TEST (vec, copy_constructor)
    VEC v(1, 2, 3);
    VEC vv(v);
 
-   ASSERT_EQ(2, vv[1]);
+   EXPECT_EQ(1, vv[0]);
+   EXPECT_EQ(2, vv[1]);
+   EXPECT_EQ(3, vv[2]);
 }
 
 
@@ -33,7 +30,9 @@ TEST (vec, assignment)
 
    vv = v;
 
-   ASSERT_EQ(2, vv[1]);
+   EXPECT_EQ(1, vv[0]);
+   EXPECT_EQ(2, vv[1]);
+   EXPECT_EQ(3, vv[2]);
 }
 
 TEST (vec, mul_double)
@@ -42,7 +41,9 @@ TEST (vec, mul_double)
 
    VEC vv = v * 5;
 
-   ASSERT_EQ(10, vv[1]);
+   EXPECT_EQ(5, vv[0]);
+   EXPECT_EQ(10, vv[1]);
+   EXPECT_EQ(15, vv[2]);
 }
 
 TEST (vec, div_double)
@@ -51,7 +52,9 @@ TEST (vec, div_double)
 
    VEC vv = v / 4.0;
 
-   ASSERT_EQ(0.5, vv[1]);
+   EXPECT_EQ(0.25, vv[0]);
+   EXPECT_EQ(0.50, vv[1]);
+   EXPECT_EQ(0.75, vv[2]);
 }
 
 TEST (vec, assign_opers)
@@ -59,9 +62,16 @@ TEST (vec, assign_opers)
    VEC v(1, 2, 3);
 
    v *= 5;
-   ASSERT_EQ(10, v[1]);
+
+   EXPECT_EQ(5,  v[0]);
+   EXPECT_EQ(10, v[1]);
+   EXPECT_EQ(15, v[2]);
+
    v += VEC(4, 5, 6);
-   ASSERT_EQ(15, v[1]);
+
+   EXPECT_EQ(9, v[0]);
+   EXPECT_EQ(15, v[1]);
+   EXPECT_EQ(21, v[2]);
 }
 
 TEST (vec, normal)
@@ -75,7 +85,10 @@ TEST (vec, normalize)
 {
    VEC v(0, 4, 3);
    v.Normalize();
-   ASSERT_EQ(0.8, v[1]);
+
+   EXPECT_EQ(0,   v[0]);
+   EXPECT_EQ(0.8, v[1]);
+   EXPECT_EQ(0.6,  v[2]);
 }
 
 TEST (vec, dot)
@@ -96,9 +109,9 @@ TEST (vec, cross)
 
    VEC res = a.Cross(b);
 
-   ASSERT_EQ(-3, res[0]);
-   ASSERT_EQ(6, res[1]);
-   ASSERT_EQ(-3, res[2]);
+   EXPECT_EQ(-3, res[0]);
+   EXPECT_EQ(6,  res[1]);
+   EXPECT_EQ(-3, res[2]);
 }
 
 TEST (matr, vec_mul_matr)
@@ -108,9 +121,9 @@ TEST (matr, vec_mul_matr)
 
    VEC c = A * b;
 
-   ASSERT_EQ(5,  c[0]);
-   ASSERT_EQ(10, c[1]);
-   ASSERT_EQ(15, c[2]);
+   EXPECT_EQ(5,  c[0]);
+   EXPECT_EQ(10, c[1]);
+   EXPECT_EQ(15, c[2]);
 }
 
 int main (int argc, char **argv) 

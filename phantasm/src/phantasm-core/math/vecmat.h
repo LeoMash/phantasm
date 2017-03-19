@@ -7,7 +7,6 @@
 class PHM_CORE_API VEC {
 public:
    VEC  (void);
-   VEC  (double el);
    VEC  (double x, double y, double z);
    VEC  (const VEC & r);
    ~VEC (void);
@@ -33,10 +32,10 @@ private:
 
 class PHM_CORE_API MATR {
 public:
-   MATR  (void);
-   MATR  (double el);
-   MATR  (const MATR & r);
-   ~MATR (void);
+            MATR  (void);
+   explicit MATR  (double diagEl);
+            MATR  (const MATR & r);
+            ~MATR (void);
 
    MATR & operator=  (const MATR & r);
 
@@ -62,5 +61,13 @@ public:
 private:
    double data[4][4];
 };
+
+PHM_CORE_API extern const VEC VEC_UNIT_X;
+PHM_CORE_API extern const VEC VEC_UNIT_Y;
+PHM_CORE_API extern const VEC VEC_UNIT_Z;
+PHM_CORE_API extern const VEC VEC_IDENTITY;
+PHM_CORE_API extern const VEC VEC_NULL;
+
+PHM_CORE_API extern const MATR MATR_IDENTITY;
 
 #endif // _VECMAT_H_

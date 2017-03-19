@@ -5,11 +5,10 @@
 #include "..\phm_core.h"
 #include "..\common.h"
 
-class PHM_CORE_API IMAGE_STORAGE {
+struct PHM_CORE_API IMAGE_STORAGE {
 public:
    IMAGE_STORAGE (void);
    ~IMAGE_STORAGE (void);
-private:
    int w;
    int h;
    BYTE * data;
