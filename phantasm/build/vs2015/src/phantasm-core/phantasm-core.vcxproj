@@ -162,6 +162,7 @@
     <ClCompile Include="..\..\..\..\src\phantasm-core\scene\scene.cpp" />
     <ClCompile Include="..\..\..\..\src\phantasm-core\scene_loader\scene_loader.cpp" />
     <ClCompile Include="..\..\..\..\src\phantasm-core\objects\sphere.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\tracer\ray.cpp" />
     <ClCompile Include="..\..\..\..\src\phantasm-core\tracer\tracer.cpp" />
     <ClCompile Include="..\..\..\..\src\phantasm-core\math\vec.cpp" />
   </ItemGroup>
@@ -176,6 +177,7 @@
     <ClInclude Include="..\..\..\..\src\phantasm-core\scene\scene.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\scene_loader\scene_loader.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\objects\sphere.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\tracer\ray.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\tracer\tracer.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\math\vecmat.h" />
   </ItemGroup>

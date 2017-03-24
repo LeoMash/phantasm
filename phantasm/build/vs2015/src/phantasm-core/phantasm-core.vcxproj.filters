@@ -31,6 +31,9 @@
     <ClInclude Include="..\..\..\..\3rd-party\jpeg-compressor\jpge.h">
       <Filter>jpeg-compressor</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\tracer\ray.h">
+      <Filter>tracer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\src\phantasm-core\objects\object.cpp">
@@ -62,6 +65,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\3rd-party\jpeg-compressor\jpge.cpp">
       <Filter>jpeg-compressor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\tracer\ray.cpp">
+      <Filter>tracer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

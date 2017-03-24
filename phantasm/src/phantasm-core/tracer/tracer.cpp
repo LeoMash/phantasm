@@ -1,7 +1,9 @@
 #include "..\common.h"
 
-#include "tracer.h"
+#include <algorithm>
 
+#include "ray.h"
+#include "tracer.h"
 
 TRACER::TRACER (void)
 {
@@ -17,10 +19,26 @@ void TRACER::TraceScene (const SCENE & scn, IMAGE_STORAGE & img)
 {
    for (int i = 0; i < img.w; i++) {
       for (int j = 0; j < img.h; j++) {
-         RGB * pnt = reinterpret_cast<RGB *>(img.data + 3 * (j * img.w + i));
-         pnt->R = 255 / img.w * i;
-         pnt->G = 255 / img.h * j;
-         pnt->B = 0;
+         RGB * pixelColor = reinterpret_cast<RGB *>(img.data + 3 * (j * img.w + i));
+         pixelColor->R = 0;
+         pixelColor->G = 0;
+         pixelColor->B = 0;
+
+         RAY ray(VEC(static_cast<double>(i) - img.w / 2.0, static_cast<double>(j) - img.h / 2.0, 7.0), 
+            VEC(0.0, 0.0, -1.0));
+
+         std::vector<INTERSECT_PARAMS> prms;
+
+         scn.IntersectAll(ray, prms);
+         double minDist = 10000.0;
+         std::for_each(prms.begin(), prms.end(),
+            [&](INTERSECT_PARAMS prm) { 
+              if (prm.isIntersect && prm.nearDistance < minDist) {
+                minDist = prm.nearDistance;
+                (*pixelColor) = prm.color;
+              } 
+            });
+
       }
    }
 }

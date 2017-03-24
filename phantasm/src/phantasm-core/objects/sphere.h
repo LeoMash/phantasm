@@ -9,8 +9,10 @@
 class PHM_CORE_API SPHERE : public OBJECT {
 public:
    SPHERE (void);
-   SPHERE (double rad, VEC pos);
+   SPHERE (double rad, VEC pos, RGB color);
    ~SPHERE (void);
+
+   INTERSECT_PARAMS Intersect (const RAY & ray);
 private:
    double radius;
 };

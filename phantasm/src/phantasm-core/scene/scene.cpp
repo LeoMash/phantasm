@@ -1,6 +1,7 @@
 #include "..\common.h"
 
 #include <vector>
+#include <algorithm>
 
 #include "scene.h"
 
@@ -44,4 +45,10 @@ SCENE::~SCENE (void)
 void SCENE::AddObject (OBJECT * newObj)
 {
    pImpl->AddObject(newObj);
+}
+
+void SCENE::IntersectAll (const RAY & ray, std::vector<INTERSECT_PARAMS> & prms) const
+{
+   std::for_each(pImpl->objects.begin(), pImpl->objects.end(),
+      [&](OBJECT * obj) {prms.push_back(obj->Intersect(ray)); });
 }
