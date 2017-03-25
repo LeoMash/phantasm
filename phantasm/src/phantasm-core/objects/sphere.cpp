@@ -30,8 +30,8 @@ INTERSECT_PARAMS SPHERE::Intersect(const RAY & ray)
       return returnParams;
    }
 
-   returnParams.distantDistance = b - sqrt(d);
-   returnParams.nearDistance = b + sqrt(d);
+   returnParams.distantDistance = b + sqrt(d);
+   returnParams.nearDistance = b - sqrt(d);
 
    returnParams.isIntersect = true;
 

@@ -1,0 +1,18 @@
+{
+"objects": [ 
+    {"type" :    "sphere",
+     "position": [5.0,  50.0, 0.0],
+     "color":    [255, 0, 0], 
+     "radius":   50.0},
+
+    {"type" :    "sphere",
+     "position": [-60.0, 5.0, 0.0],
+     "color":    [0, 255, 0], 
+     "radius":   50.0},
+
+    {"type" :    "sphere",
+     "position": [30.0, 30.0, 30.0],
+     "color":    [0, 0, 255], 
+     "radius":   50.0}
+  ]
+}

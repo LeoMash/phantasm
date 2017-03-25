@@ -34,6 +34,12 @@
     <ClInclude Include="..\..\..\..\src\phantasm-core\tracer\ray.h">
       <Filter>tracer</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\3rd-party\jsoncpp\json\json.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\3rd-party\jsoncpp\json\json-forwards.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\src\phantasm-core\objects\object.cpp">
@@ -69,6 +75,9 @@
     <ClCompile Include="..\..\..\..\src\phantasm-core\tracer\ray.cpp">
       <Filter>tracer</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\3rd-party\jsoncpp\jsoncpp.cpp">
+      <Filter>jsoncpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="math">
@@ -94,6 +103,9 @@
     </Filter>
     <Filter Include="jpeg-compressor">
       <UniqueIdentifier>{f399d9a2-7bc9-43fc-8ac7-9432b0dc5e2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="jsoncpp">
+      <UniqueIdentifier>{35b727cb-6dca-4ff5-9ce3-29d9918016f1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

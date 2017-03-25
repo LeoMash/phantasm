@@ -24,13 +24,13 @@ void TRACER::TraceScene (const SCENE & scn, IMAGE_STORAGE & img)
          pixelColor->G = 0;
          pixelColor->B = 0;
 
-         RAY ray(VEC(static_cast<double>(i) - img.w / 2.0, static_cast<double>(j) - img.h / 2.0, 7.0), 
+         RAY ray(VEC(static_cast<double>(i) - img.w / 2.0, static_cast<double>(j) - img.h / 2.0, 1000.0), 
             VEC(0.0, 0.0, -1.0));
 
          std::vector<INTERSECT_PARAMS> prms;
 
          scn.IntersectAll(ray, prms);
-         double minDist = 10000.0;
+         double minDist = 1000000.0;
          std::for_each(prms.begin(), prms.end(),
             [&](INTERSECT_PARAMS prm) { 
               if (prm.isIntersect && prm.nearDistance < minDist) {

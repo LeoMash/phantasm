@@ -155,6 +155,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\3rd-party\jpeg-compressor\jpge.cpp" />
+    <ClCompile Include="..\..\..\..\3rd-party\jsoncpp\jsoncpp.cpp" />
     <ClCompile Include="..\..\..\..\src\phantasm-core\image_saver\image_saver.cpp" />
     <ClCompile Include="..\..\..\..\src\phantasm-core\image_storage\image_storage.cpp" />
     <ClCompile Include="..\..\..\..\src\phantasm-core\math\mat.cpp" />
@@ -168,6 +169,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\3rd-party\jpeg-compressor\jpge.h" />
+    <ClInclude Include="..\..\..\..\3rd-party\jsoncpp\json\json-forwards.h" />
+    <ClInclude Include="..\..\..\..\3rd-party\jsoncpp\json\json.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\common.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\image_saver\image_saver.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\image_storage\image_storage.h" />
