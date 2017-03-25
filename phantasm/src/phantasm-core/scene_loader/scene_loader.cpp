@@ -27,15 +27,15 @@ bool PHM_CORE_API LoadSceneFromJSON (SCENE & scn, std::string fileName)
    }
 
    const Json::Value objects = root["objects"];
-   for (int index = 0; index < objects.size(); index++) {
+   for (unsigned int index = 0; index < objects.size(); index++) {
       scn.AddObject(new SPHERE(
          objects[index].get("radius", 0.0).asDouble(),
          VEC(objects[index]["position"][0].asDouble(), 
              objects[index]["position"][1].asDouble(),
              objects[index]["position"][2].asDouble()),
-         RGB(objects[index]["color"][0].asInt(), 
-             objects[index]["color"][1].asInt(),
-             objects[index]["color"][2].asInt())));
+         RGB(objects[index]["color"][0].asUInt(), 
+             objects[index]["color"][1].asUInt(),
+             objects[index]["color"][2].asUInt())));
    }
 
    return true;

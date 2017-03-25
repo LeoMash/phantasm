@@ -40,6 +40,9 @@
     <ClInclude Include="..\..\..\..\3rd-party\jsoncpp\json\json-forwards.h">
       <Filter>jsoncpp</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\material\material.h">
+      <Filter>material</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\src\phantasm-core\objects\object.cpp">
@@ -106,6 +109,9 @@
     </Filter>
     <Filter Include="jsoncpp">
       <UniqueIdentifier>{35b727cb-6dca-4ff5-9ce3-29d9918016f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="material">
+      <UniqueIdentifier>{91660af6-647f-4701-9b85-31a98acde991}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -7,6 +7,7 @@
 #include "..\math\vecmat.h"
 #include "..\tracer\ray.h"
 #include "..\common.h"
+#include "..\material\material.h"
 
 struct INTERSECT_PARAMS {
    bool   isIntersect;
