@@ -2,5 +2,19 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="..\..\..\..\src\phantasm\main.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm\console\console.cpp">
+      <Filter>console</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\src\phantasm\common.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm\console\console.h">
+      <Filter>console</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="console">
+      <UniqueIdentifier>{68a05d43-bc55-4577-9b50-5c93d23593b0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

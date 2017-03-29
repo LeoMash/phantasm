@@ -1,23 +1,33 @@
-#include <stdio.h>
+#include "common.h"
 
-
-void PrintHelp (void)
-{
-   puts("Phantasm is console raytracer");
-   puts("Usage: ");
-   puts("\tTODO:");
-   // TODO: [3.10.2016 lmashinskiy]
-}
-
+#include "console\console.h"
+#include "phm_core_export.h"
 
 int main (int argc, char * argv[])
 {
-   if (argc < 2) {
-      PrintHelp();
+   CONSOLE_PARAMETERS params;
+
+   if (!ParseConsole(argc, argv, params)) {
       return 0;
    }
+   
+   SCENE scn;
 
-   // TODO: [3.10.2016 lmashinskiy]
+   LoadSceneFromJSON(scn, params.sceneFile);
+   
+   TRACER tr;
+   IMAGE_STORAGE img;
+
+   img.w = 500;
+   img.h = 500;
+
+   img.data = new BYTE[500 * 500 * 3]();
+
+   tr.TraceScene(scn, img);
+
+   SaveImageToJpeg(img, params.outputImage);
+
+   delete[] (img.data);
 
    return 0;
 }

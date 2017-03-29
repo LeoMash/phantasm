@@ -95,7 +95,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;PHANTASMCORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_WINDOWS;_USRDLL;PHANTASMCORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -109,7 +109,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;PHANTASMCORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;PHANTASMCORE_EXPORTS;_DEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -125,7 +125,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;PHANTASMCORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_WINDOWS;_USRDLL;PHANTASMCORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -143,7 +143,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;PHANTASMCORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;PHANTASMCORE_EXPORTS;NDEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
@@ -154,11 +154,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\src\phantasm-core\stub.cpp" />
+    <ClCompile Include="..\..\..\..\3rd-party\jpeg-compressor\jpge.cpp" />
+    <ClCompile Include="..\..\..\..\3rd-party\jsoncpp\jsoncpp.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\image_saver\image_saver.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\image_storage\image_storage.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\math\mat.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\objects\object.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\scene\scene.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\scene_loader\scene_loader.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\objects\sphere.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\tracer\ray.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\tracer\tracer.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\math\vec.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\3rd-party\jpeg-compressor\jpge.h" />
+    <ClInclude Include="..\..\..\..\3rd-party\jsoncpp\json\json-forwards.h" />
+    <ClInclude Include="..\..\..\..\3rd-party\jsoncpp\json\json.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\common.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\image_saver\image_saver.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\image_storage\image_storage.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\material\material.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\objects\object.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\phm_core_export.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\phm_core.h" />
-    <ClInclude Include="..\..\..\..\src\phantasm-core\stub.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\scene\scene.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\scene_loader\scene_loader.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\objects\sphere.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\tracer\ray.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\tracer\tracer.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\math\vecmat.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
