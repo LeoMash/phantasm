@@ -32,7 +32,7 @@ void TRACER::TraceScene (const SCENE & scn, IMAGE_STORAGE & img)
          scn.IntersectAll(ray, prms);
          double minDist = 1000000.0;
          std::for_each(prms.begin(), prms.end(),
-            [&](INTERSECT_PARAMS prm) { 
+            [&minDist, pixelColor](INTERSECT_PARAMS prm) { 
               if (prm.isIntersect && prm.nearDistance < minDist) {
                 minDist = prm.nearDistance;
                 (*pixelColor) = prm.color;

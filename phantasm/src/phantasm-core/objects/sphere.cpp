@@ -19,7 +19,7 @@ INTERSECT_PARAMS SPHERE::Intersect(const RAY & ray)
 {
    INTERSECT_PARAMS returnParams;
 
-   VEC dist = (GetPosition() - ray.startingPnt);
+   VEC dist = (GetPosition() - ray.start);
    double b = ray.dir.Dot(dist);
    double d = b * b - dist.Dot(dist) + radius * radius;
 

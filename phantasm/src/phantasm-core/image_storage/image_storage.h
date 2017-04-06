@@ -9,6 +9,9 @@ struct PHM_CORE_API IMAGE_STORAGE {
 public:
    IMAGE_STORAGE (void);
    ~IMAGE_STORAGE (void);
+
+   void Allocate(int newW, int newH);
+
    int w;
    int h;
    BYTE * data;

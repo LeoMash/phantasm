@@ -22,7 +22,7 @@ public:
    OBJECT (VEC pos, RGB clr);
    virtual ~OBJECT (void);
 
-   virtual INTERSECT_PARAMS Intersect (const RAY & ray);
+   virtual INTERSECT_PARAMS Intersect (const RAY & ray) = 0;
 
    RGB GetColor    (void) const { return color; }
    VEC GetPosition (void) const { return position; }

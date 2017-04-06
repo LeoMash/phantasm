@@ -17,7 +17,3 @@ OBJECT::~OBJECT (void)
 
 }
 
-INTERSECT_PARAMS OBJECT::Intersect(const RAY & ray)
-{
-   return INTERSECT_PARAMS();
-}

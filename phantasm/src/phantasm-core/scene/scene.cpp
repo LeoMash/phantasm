@@ -5,13 +5,13 @@
 
 #include "scene.h"
 
-struct SCENE_IMPL {
-   SCENE_IMPL (void)
+struct SCENE::IMPL {
+   IMPL (void)
    {
    
    }
    
-   ~SCENE_IMPL (void)
+   ~IMPL (void)
    {
       Clear();
    }
@@ -31,14 +31,13 @@ struct SCENE_IMPL {
 };
 
 
-SCENE::SCENE (void) : pImpl(new SCENE_IMPL())
+SCENE::SCENE (void) : pImpl(new SCENE::IMPL())
 {
 
 }
 
 SCENE::~SCENE (void)
 {
-   pImpl->Clear();
    delete(pImpl);
 }
 
@@ -50,5 +49,5 @@ void SCENE::AddObject (OBJECT * newObj)
 void SCENE::IntersectAll (const RAY & ray, std::vector<INTERSECT_PARAMS> & prms) const
 {
    std::for_each(pImpl->objects.begin(), pImpl->objects.end(),
-      [&](OBJECT * obj) {prms.push_back(obj->Intersect(ray)); });
+      [&prms, &ray](OBJECT * obj) {prms.push_back(obj->Intersect(ray)); });
 }

@@ -4,10 +4,10 @@
 
 #include "..\objects\sphere.h"
 
-#include "..\..\..\3rd-party\jsoncpp\json\json.h"
-#include "..\..\..\3rd-party\jsoncpp\json\json-forwards.h"
+#include "jsoncpp\json\json.h"
+#include "jsoncpp\json\json-forwards.h"
 
-bool PHM_CORE_API LoadSceneFromJSON (SCENE & scn, std::string fileName)
+PHM_CORE_API bool  LoadSceneFromJSON (SCENE & scn, std::string fileName)
 {
    Json::Value root;
    Json::Reader reader;
@@ -15,8 +15,6 @@ bool PHM_CORE_API LoadSceneFromJSON (SCENE & scn, std::string fileName)
    std::ifstream inFile(fileName);
 
    bool parsingSuccessful = reader.parse(inFile, root);
-
-   inFile.close();
 
    if (!parsingSuccessful)
    {

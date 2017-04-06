@@ -12,7 +12,7 @@ public:
    SPHERE (double rad, VEC pos, RGB color);
    ~SPHERE (void);
 
-   INTERSECT_PARAMS Intersect (const RAY & ray);
+   INTERSECT_PARAMS Intersect (const RAY & ray) override;
 private:
    double radius;
 };

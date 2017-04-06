@@ -5,11 +5,11 @@
 #include "..\math\vecmat.h"
 
 struct RAY {
-   RAY (VEC startingPoint, VEC direction) : startingPnt(startingPoint), dir(direction) {}
+   RAY (VEC startingPoint, VEC direction) : start(startingPoint), dir(direction) {}
    RAY (void) {}
    ~RAY (void) {}
 
-   VEC startingPnt;
+   VEC start;
    VEC dir;
 };
 

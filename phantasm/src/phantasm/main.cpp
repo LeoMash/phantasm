@@ -18,16 +18,11 @@ int main (int argc, char * argv[])
    TRACER tr;
    IMAGE_STORAGE img;
 
-   img.w = 500;
-   img.h = 500;
-
-   img.data = new BYTE[500 * 500 * 3]();
+   img.Allocate(500, 500);
 
    tr.TraceScene(scn, img);
 
    SaveImageToJpeg(img, params.outputImage);
-
-   delete[] (img.data);
 
    return 0;
 }
