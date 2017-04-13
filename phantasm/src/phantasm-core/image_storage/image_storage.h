@@ -2,8 +2,8 @@
 #ifndef _IMAGE_H_
 #define _IMAGE_H_
 
-#include "..\phm_core.h"
-#include "..\common.h"
+#include "phm_core.h"
+#include "common.h"
 
 struct PHM_CORE_API IMAGE_STORAGE {
 public:

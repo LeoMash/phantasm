@@ -2,9 +2,9 @@
 #ifndef _MATERIAL_H_
 #define _MATERIAL_H_
 
-#include "..\phm_core.h"
+#include "phm_core.h"
 
-#include "..\common.h"
+#include "common.h"
 
 struct PHM_CORE_API RGB {
    RGB (void) = default;

@@ -4,9 +4,9 @@
 
 #include <string>
 
-#include "..\phm_core.h"
+#include "phm_core.h"
 
-#include "..\image_storage\image_storage.h"
+#include "image_storage\image_storage.h"
 
 PHM_CORE_API void SaveImageToJpeg (const IMAGE_STORAGE & img, std::string fileName);
 

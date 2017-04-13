@@ -5,7 +5,7 @@
 
 int main (int argc, char * argv[])
 {
-   CONSOLE_PARAMETERS params;
+   INPUT_PARAMS params;
 
    if (!ParseConsole(argc, argv, params)) {
       return 0;

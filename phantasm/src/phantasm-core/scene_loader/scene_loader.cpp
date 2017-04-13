@@ -2,10 +2,10 @@
 
 #include "scene_loader.h"
 
-#include "..\objects\sphere.h"
+#include "objects\sphere.h"
 
-#include "jsoncpp\json\json.h"
-#include "jsoncpp\json\json-forwards.h"
+#include "json\json.h"
+#include "json\json-forwards.h"
 
 PHM_CORE_API bool  LoadSceneFromJSON (SCENE & scn, std::string fileName)
 {
@@ -18,7 +18,7 @@ PHM_CORE_API bool  LoadSceneFromJSON (SCENE & scn, std::string fileName)
 
    if (!parsingSuccessful)
    {
-      std::ofstream errFile("..\\..\\bin\\error_log.txt");
+      std::ofstream errFile("error_log.txt");
       errFile << "Failed to parse JSON file : " << reader.getFormattedErrorMessages();
       errFile.close();
       return false;
@@ -26,14 +26,19 @@ PHM_CORE_API bool  LoadSceneFromJSON (SCENE & scn, std::string fileName)
 
    const Json::Value objects = root["objects"];
    for (unsigned int index = 0; index < objects.size(); index++) {
+      const Json::Value obj = objects[index];
+
+      const Json::Value pos =   obj["position"];
+      const Json::Value color = obj["color"];
+
       scn.AddObject(new SPHERE(
-         objects[index].get("radius", 0.0).asDouble(),
-         VEC(objects[index]["position"][0].asDouble(), 
-             objects[index]["position"][1].asDouble(),
-             objects[index]["position"][2].asDouble()),
-         RGB(objects[index]["color"][0].asUInt(), 
-             objects[index]["color"][1].asUInt(),
-             objects[index]["color"][2].asUInt())));
+         obj["radius"].asDouble(),
+         VEC(pos[0].asDouble(), 
+             pos[1].asDouble(),
+             pos[2].asDouble()),
+         RGB(color[0].asUInt(), 
+             color[1].asUInt(),
+             color[2].asUInt())));
    }
 
    return true;

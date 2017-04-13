@@ -1,4 +1,4 @@
-#include "..\common.h"
+#include "common.h"
 
 #include <algorithm>
 
@@ -27,15 +27,22 @@ void TRACER::TraceScene (const SCENE & scn, IMAGE_STORAGE & img)
          RAY ray(VEC(static_cast<double>(i) - img.w / 2.0, static_cast<double>(j) - img.h / 2.0, 1000.0), 
             VEC(0.0, 0.0, -1.0));
 
-         std::vector<INTERSECT_PARAMS> prms;
+         std::vector<INTERSECTION> prms;
 
-         scn.IntersectAll(ray, prms);
+         std::for_each(scn.Begin(), scn.End(),
+            [&prms, &ray](const OBJECT * obj) {
+               INTERSECTION intersect;
+               if (obj->Intersect(ray, intersect)) {
+                  prms.push_back(intersect);
+               }
+            });
+
          double minDist = 1000000.0;
          std::for_each(prms.begin(), prms.end(),
-            [&minDist, pixelColor](INTERSECT_PARAMS prm) { 
-              if (prm.isIntersect && prm.nearDistance < minDist) {
-                minDist = prm.nearDistance;
-                (*pixelColor) = prm.color;
+            [&minDist, pixelColor](INTERSECTION prm) { 
+              if (prm.distance < minDist) {
+                minDist = prm.distance;
+                (*pixelColor) = prm.obj->GetColor();
               } 
             });
 

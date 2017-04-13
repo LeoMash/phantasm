@@ -2,7 +2,7 @@
 #ifndef _VECMAT_H_
 #define _VECMAT_H_
 
-#include "..\phm_core.h"
+#include "phm_core.h"
 
 class PHM_CORE_API VEC {
 public:

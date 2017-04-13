@@ -4,8 +4,8 @@
 
 #include <string>
 
-#include "..\phm_core.h"
-#include "..\scene\scene.h"
+#include "phm_core.h"
+#include "scene\scene.h"
 
 PHM_CORE_API bool LoadSceneFromJSON (SCENE & scn, std::string fileName);
 

@@ -15,10 +15,8 @@ SPHERE::~SPHERE(void)
 
 }
 
-INTERSECT_PARAMS SPHERE::Intersect(const RAY & ray)
+bool SPHERE::Intersect (const RAY & ray, INTERSECTION & intersection) const
 {
-   INTERSECT_PARAMS returnParams;
-
    VEC dist = (GetPosition() - ray.start);
    double b = ray.dir.Dot(dist);
    double d = b * b - dist.Dot(dist) + radius * radius;
@@ -26,16 +24,11 @@ INTERSECT_PARAMS SPHERE::Intersect(const RAY & ray)
    static double eps = 0.001;
 
    if (d < eps) {
-      returnParams.isIntersect = false;
-      return returnParams;
+      return false;
    }
 
-   returnParams.distantDistance = b + sqrt(d);
-   returnParams.nearDistance = b - sqrt(d);
+   intersection.distance = b - sqrt(d);
+   intersection.obj = this;
 
-   returnParams.isIntersect = true;
-
-   returnParams.color = GetColor();
-
-   return returnParams;
+   return true;
 }

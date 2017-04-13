@@ -2,7 +2,7 @@
 #ifndef _SPHERE_H_
 #define _SPHERE_H_
 
-#include "..\phm_core.h"
+#include "phm_core.h"
 
 #include "object.h"
 
@@ -12,7 +12,7 @@ public:
    SPHERE (double rad, VEC pos, RGB color);
    ~SPHERE (void);
 
-   INTERSECT_PARAMS Intersect (const RAY & ray) override;
+   bool Intersect (const RAY & ray, INTERSECTION & intersection) const override;
 private:
    double radius;
 };

@@ -1,6 +1,6 @@
 #include <fstream>
 
-#include "jpeg-compressor\jpge.h"
+#include "jpge.h"
 
 #include "image_saver.h"
 

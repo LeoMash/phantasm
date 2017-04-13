@@ -28,20 +28,20 @@
     <ClInclude Include="..\..\..\..\src\phantasm-core\image_saver\image_saver.h">
       <Filter>image_saver</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\3rd-party\jpeg-compressor\jpge.h">
-      <Filter>jpeg-compressor</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\src\phantasm-core\tracer\ray.h">
       <Filter>tracer</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\3rd-party\jsoncpp\json\json.h">
-      <Filter>jsoncpp</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\3rd-party\jsoncpp\json\json-forwards.h">
-      <Filter>jsoncpp</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\src\phantasm-core\material\material.h">
       <Filter>material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\3rd-party\src\jsoncpp\json\json.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\3rd-party\src\jsoncpp\json\json-forwards.h">
+      <Filter>jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\3rd-party\src\jpeg-compressor\jpge.h">
+      <Filter>jpeg-compressor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -72,14 +72,14 @@
     <ClCompile Include="..\..\..\..\src\phantasm-core\image_saver\image_saver.cpp">
       <Filter>image_saver</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\3rd-party\jpeg-compressor\jpge.cpp">
-      <Filter>jpeg-compressor</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\src\phantasm-core\tracer\ray.cpp">
       <Filter>tracer</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\3rd-party\jsoncpp\jsoncpp.cpp">
+    <ClCompile Include="..\..\..\..\3rd-party\src\jsoncpp\jsoncpp.cpp">
       <Filter>jsoncpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\3rd-party\src\jpeg-compressor\jpge.cpp">
+      <Filter>jpeg-compressor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

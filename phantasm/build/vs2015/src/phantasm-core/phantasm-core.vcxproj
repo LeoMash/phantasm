@@ -97,7 +97,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_WINDOWS;_USRDLL;PHANTASMCORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\..\..\..\3rd-party;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\..\3rd-party\include;..\..\..\..\src\phantasm-core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -112,7 +112,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;PHANTASMCORE_EXPORTS;_DEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\..\..\..\3rd-party;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\..\3rd-party\include;..\..\..\..\src\phantasm-core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -129,7 +129,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_WINDOWS;_USRDLL;PHANTASMCORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\..\..\..\3rd-party;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\..\3rd-party\include;..\..\..\..\src\phantasm-core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -148,7 +148,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;PHANTASMCORE_EXPORTS;NDEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\..\..\..\3rd-party;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\..\3rd-party\include;..\..\..\..\src\phantasm-core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -158,8 +158,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\3rd-party\jpeg-compressor\jpge.cpp" />
-    <ClCompile Include="..\..\..\..\3rd-party\jsoncpp\jsoncpp.cpp" />
+    <ClCompile Include="..\..\..\..\3rd-party\src\jpeg-compressor\jpge.cpp" />
+    <ClCompile Include="..\..\..\..\3rd-party\src\jsoncpp\jsoncpp.cpp" />
     <ClCompile Include="..\..\..\..\src\phantasm-core\image_saver\image_saver.cpp" />
     <ClCompile Include="..\..\..\..\src\phantasm-core\image_storage\image_storage.cpp" />
     <ClCompile Include="..\..\..\..\src\phantasm-core\math\mat.cpp" />
@@ -172,9 +172,9 @@
     <ClCompile Include="..\..\..\..\src\phantasm-core\math\vec.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\3rd-party\jpeg-compressor\jpge.h" />
-    <ClInclude Include="..\..\..\..\3rd-party\jsoncpp\json\json-forwards.h" />
-    <ClInclude Include="..\..\..\..\3rd-party\jsoncpp\json\json.h" />
+    <ClInclude Include="..\..\..\..\3rd-party\src\jpeg-compressor\jpge.h" />
+    <ClInclude Include="..\..\..\..\3rd-party\src\jsoncpp\json\json-forwards.h" />
+    <ClInclude Include="..\..\..\..\3rd-party\src\jsoncpp\json\json.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\common.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\image_saver\image_saver.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\image_storage\image_storage.h" />

@@ -4,12 +4,12 @@
 
 #include <string>
 
-struct CONSOLE_PARAMETERS {
+struct INPUT_PARAMS {
    std::string sceneFile;
    std::string outputImage;
 };
 
 void PrintHelp (void);
-bool ParseConsole (int argc, char * argv[], CONSOLE_PARAMETERS & params);
+bool ParseConsole (int argc, char * argv[], INPUT_PARAMS & params);
 
 #endif // _CONSOLE_H_

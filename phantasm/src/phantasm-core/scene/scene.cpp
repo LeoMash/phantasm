@@ -1,4 +1,4 @@
-#include "..\common.h"
+#include "common.h"
 
 #include <vector>
 #include <algorithm>
@@ -21,15 +21,29 @@ struct SCENE::IMPL {
       objects.clear();
    }
 
-   void AddObject(OBJECT * newObj)
+   void AddObject (OBJECT * newObj)
    {
       objects.push_back(newObj);
+   }
+
+   size_t GetSize (void)
+   {
+      return objects.size();
+   }
+
+   OBJECT * operator[] (int index)
+   {
+      return objects[index];
+   }
+
+   const OBJECT * operator[] (int index) const
+   {
+      return objects[index];
    }
 
    std::vector<OBJECT *> objects;
  
 };
-
 
 SCENE::SCENE (void) : pImpl(new SCENE::IMPL())
 {
@@ -46,8 +60,113 @@ void SCENE::AddObject (OBJECT * newObj)
    pImpl->AddObject(newObj);
 }
 
-void SCENE::IntersectAll (const RAY & ray, std::vector<INTERSECT_PARAMS> & prms) const
+OBJECT * SCENE::operator[] (unsigned int index)
 {
-   std::for_each(pImpl->objects.begin(), pImpl->objects.end(),
-      [&prms, &ray](OBJECT * obj) {prms.push_back(obj->Intersect(ray)); });
+   return (*pImpl)[index];
+}
+
+const OBJECT * SCENE::operator[] (unsigned int index) const
+{
+   return (*pImpl)[index];
+}
+
+SCENE_ITERATOR SCENE::Begin (void)
+{
+   return SCENE_ITERATOR(0, *pImpl);
+}
+
+SCENE_ITERATOR SCENE::End (void)
+{
+   return SCENE_ITERATOR(static_cast<unsigned int>(pImpl->GetSize()), *pImpl);
+}
+
+SCENE_CONST_ITERATOR SCENE::Begin (void) const
+{
+   return SCENE_CONST_ITERATOR(0, *pImpl);
+}
+
+SCENE_CONST_ITERATOR SCENE::End (void) const
+{
+   return SCENE_CONST_ITERATOR(static_cast<unsigned int>(pImpl->GetSize()), *pImpl);
+}
+
+SCENE_ITERATOR::SCENE_ITERATOR (unsigned int ind, SCENE::IMPL & scn) : index(ind), scene(scn)
+{
+}
+
+SCENE_ITERATOR::SCENE_ITERATOR (const SCENE_ITERATOR & it) : index(it.index), scene(it.scene)
+{
+}
+
+SCENE_ITERATOR::~SCENE_ITERATOR (void)
+{
+}
+
+OBJECT * SCENE_ITERATOR::operator* (void)
+{
+   return scene[index];
+}
+
+void SCENE_ITERATOR::operator++ (void)
+{
+   index++;
+}
+
+bool SCENE_ITERATOR::operator== (const SCENE_ITERATOR & it) const
+{
+   if (&it.scene == &scene && it.index == index) {
+      return true;
+   }
+
+   return false;
+}
+
+bool SCENE_ITERATOR::operator!= (const SCENE_ITERATOR & it) const
+{
+   if (&it.scene != &scene || it.index != index) {
+      return true;
+   }
+
+   return false;
+}
+
+
+SCENE_CONST_ITERATOR::SCENE_CONST_ITERATOR (unsigned int ind, SCENE::IMPL & scn) : index(ind), scene(scn)
+{
+}
+
+SCENE_CONST_ITERATOR::SCENE_CONST_ITERATOR (const SCENE_CONST_ITERATOR & it) : index(it.index), scene(it.scene)
+{
+}
+
+SCENE_CONST_ITERATOR::~SCENE_CONST_ITERATOR (void)
+{
+}
+
+const OBJECT * SCENE_CONST_ITERATOR::operator* (void) const
+{
+   return scene[index];
+}
+
+void SCENE_CONST_ITERATOR::operator++ (void)
+{
+   index++;
+}
+
+bool SCENE_CONST_ITERATOR::operator== (const SCENE_CONST_ITERATOR & it) const
+{
+   if (&it.scene == &scene && it.index == index) {
+      return true;
+   }
+
+   return false;
+}
+
+bool SCENE_CONST_ITERATOR::operator!= (const SCENE_CONST_ITERATOR & it) const
+{
+   if (&it.scene != &scene || it.index != index) {
+      return true;
+   }
+
+   return false;
 }

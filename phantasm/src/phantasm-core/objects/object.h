@@ -2,18 +2,18 @@
 #ifndef _OBJECT_H_
 #define _OBJECT_H_
 
-#include "..\phm_core.h"
+#include "phm_core.h"
 
-#include "..\math\vecmat.h"
-#include "..\tracer\ray.h"
-#include "..\common.h"
-#include "..\material\material.h"
+#include "math\vecmat.h"
+#include "tracer\ray.h"
+#include "common.h"
+#include "material\material.h"
 
-struct INTERSECT_PARAMS {
-   bool   isIntersect;
-   double distantDistance;
-   double nearDistance;
-   RGB    color;
+class OBJECT;
+
+struct INTERSECTION {
+   double distance;
+   const OBJECT * obj;
 };
 
 class PHM_CORE_API OBJECT {
@@ -22,7 +22,7 @@ public:
    OBJECT (VEC pos, RGB clr);
    virtual ~OBJECT (void);
 
-   virtual INTERSECT_PARAMS Intersect (const RAY & ray) = 0;
+   virtual bool Intersect (const RAY & ray, INTERSECTION & intersection) const  = 0;
 
    RGB GetColor    (void) const { return color; }
    VEC GetPosition (void) const { return position; }

@@ -10,7 +10,7 @@ void PrintHelp (void)
    puts("   --output-file -o for output file");
 }
 
-bool ParseConsole (int argc, char * argv[], CONSOLE_PARAMETERS & params)
+bool ParseConsole (int argc, char * argv[], INPUT_PARAMS & params)
 {
    if (argc < 5) {
       PrintHelp();
