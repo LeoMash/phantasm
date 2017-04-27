@@ -1,6 +1,6 @@
 #pragma once
-#ifndef _VECMAT_H_
-#define _VECMAT_H_
+#ifndef _VEC_H_
+#define _VEC_H_
 
 #include "phm_core.h"
 
@@ -20,7 +20,7 @@ public:
    VEC       operator+   (const VEC & r) const;
    VEC &     operator+=  (const VEC & r);
    VEC       operator-   (const VEC & r) const;
-   
+
    double Norm (void) const;
    VEC &  Normalize (void);
 
@@ -30,44 +30,11 @@ private:
    double data[3];
 };
 
-class PHM_CORE_API MATR {
-public:
-            MATR  (void);
-   explicit MATR  (double diagEl);
-            MATR  (const MATR & r);
-            ~MATR (void);
-
-   MATR & operator=  (const MATR & r);
-
-   MATR & operator+= (const MATR & r);
-   MATR   operator+  (const MATR & r) const;
-
-   MATR & operator-= (const MATR & r);
-   MATR   operator-  (const MATR & r) const;
-
-   MATR & operator*= (const MATR & r);
-   MATR   operator*  (const MATR & r) const;
-
-   MATR & operator*= (const double & r);
-   MATR   operator*  (const double & r) const;
-          
-   VEC    operator*  (const VEC & r) const;
-          
-   MATR   operator-  (void);
-
-   double GetEl (int row, int column) const;
-   void SetEl (int row, int column, double el);
-   MATR Transpose (void) const;
-private:
-   double data[4][4];
-};
-
 PHM_CORE_API extern const VEC VEC_UNIT_X;
 PHM_CORE_API extern const VEC VEC_UNIT_Y;
 PHM_CORE_API extern const VEC VEC_UNIT_Z;
 PHM_CORE_API extern const VEC VEC_IDENTITY;
 PHM_CORE_API extern const VEC VEC_NULL;
 
-PHM_CORE_API extern const MATR MATR_IDENTITY;
 
-#endif // _VECMAT_H_
+#endif // _VEC_H_

@@ -1,6 +1,6 @@
 #include "common.h"
 
-#include "vecmat.h"
+#include "vec.h"
 
 const VEC VEC_UNIT_X(1, 0, 0);
 const VEC VEC_UNIT_Y(0, 1, 0);

@@ -3,6 +3,7 @@
 #include "scene_loader.h"
 
 #include "objects\sphere.h"
+#include "logger\logger.h"
 
 #include "json\json.h"
 #include "json\json-forwards.h"
@@ -18,9 +19,8 @@ PHM_CORE_API bool  LoadSceneFromJSON (SCENE & scn, std::string fileName)
 
    if (!parsingSuccessful)
    {
-      std::ofstream errFile("error_log.txt");
-      errFile << "Failed to parse JSON file : " << reader.getFormattedErrorMessages();
-      errFile.close();
+      LogMessage("Failed to parse JSON file : " + reader.getFormattedErrorMessages());
+      
       return false;
    }
 

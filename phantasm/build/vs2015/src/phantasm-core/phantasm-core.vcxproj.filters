@@ -7,9 +7,6 @@
     <ClInclude Include="..\..\..\..\src\phantasm-core\objects\object.h">
       <Filter>objects</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\src\phantasm-core\math\vecmat.h">
-      <Filter>math</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\..\src\phantasm-core\objects\sphere.h">
       <Filter>objects</Filter>
     </ClInclude>
@@ -35,13 +32,31 @@
       <Filter>material</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\3rd-party\src\jsoncpp\json\json.h">
-      <Filter>jsoncpp</Filter>
+      <Filter>3rd-party\jsoncpp</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\3rd-party\src\jsoncpp\json\json-forwards.h">
-      <Filter>jsoncpp</Filter>
+      <Filter>3rd-party\jsoncpp</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\3rd-party\src\jpeg-compressor\jpge.h">
-      <Filter>jpeg-compressor</Filter>
+      <Filter>3rd-party\jpeg-compressor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\3rd-party\src\easylogging\easylogging++.h">
+      <Filter>3rd-party\easylogging</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\logger\logger.h">
+      <Filter>logger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\math\vec.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\math\matr.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\camera\camera.h">
+      <Filter>camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\light\light.h">
+      <Filter>light</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -50,9 +65,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\src\phantasm-core\image_storage\image_storage.cpp">
       <Filter>image_storage</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\src\phantasm-core\math\mat.cpp">
-      <Filter>math</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\src\phantasm-core\math\vec.cpp">
       <Filter>math</Filter>
@@ -76,10 +88,28 @@
       <Filter>tracer</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\3rd-party\src\jsoncpp\jsoncpp.cpp">
-      <Filter>jsoncpp</Filter>
+      <Filter>3rd-party\jsoncpp</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\3rd-party\src\jpeg-compressor\jpge.cpp">
-      <Filter>jpeg-compressor</Filter>
+      <Filter>3rd-party\jpeg-compressor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\3rd-party\src\easylogging\easylogging++.cc">
+      <Filter>3rd-party\easylogging</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\logger\logger.cpp">
+      <Filter>logger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\math\matr.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\camera\camera.cpp">
+      <Filter>camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\light\light.cpp">
+      <Filter>light</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\material\material.cpp">
+      <Filter>material</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -104,14 +134,29 @@
     <Filter Include="image_saver">
       <UniqueIdentifier>{c069e356-5669-4197-b55a-359960544f48}</UniqueIdentifier>
     </Filter>
-    <Filter Include="jpeg-compressor">
-      <UniqueIdentifier>{f399d9a2-7bc9-43fc-8ac7-9432b0dc5e2b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="jsoncpp">
-      <UniqueIdentifier>{35b727cb-6dca-4ff5-9ce3-29d9918016f1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="material">
       <UniqueIdentifier>{91660af6-647f-4701-9b85-31a98acde991}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rd-party">
+      <UniqueIdentifier>{dc681a2e-c1ea-4f6e-aff0-7f3d9b5067b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rd-party\jsoncpp">
+      <UniqueIdentifier>{35b727cb-6dca-4ff5-9ce3-29d9918016f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rd-party\jpeg-compressor">
+      <UniqueIdentifier>{f399d9a2-7bc9-43fc-8ac7-9432b0dc5e2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rd-party\easylogging">
+      <UniqueIdentifier>{355b2191-7894-4ea4-bc9b-9691a7b4ad92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logger">
+      <UniqueIdentifier>{fde07af6-b4d0-4e67-97e0-f9c64ab76c32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="camera">
+      <UniqueIdentifier>{e697b3cf-dcfe-4309-b07e-1d05433ab2c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="light">
+      <UniqueIdentifier>{bbf15b01-cccb-48da-a82e-0944ff71c06a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

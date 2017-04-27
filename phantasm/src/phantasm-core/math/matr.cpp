@@ -1,6 +1,6 @@
 #include "common.h"
 
-#include "vecmat.h"
+#include "matr.h"
 
 const MATR MATR_IDENTITY(1);
 

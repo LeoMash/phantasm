@@ -5,6 +5,8 @@
 
 int main (int argc, char * argv[])
 {
+   StartLogging();
+
    INPUT_PARAMS params;
 
    if (!ParseConsole(argc, argv, params)) {
@@ -15,6 +17,8 @@ int main (int argc, char * argv[])
 
    LoadSceneFromJSON(scn, params.sceneFile);
    
+   scn.SetCamera(VEC(10, 10, 10), VEC(0, 0, 0), VEC(0, 1, 0), 3.14 * 2.0 / 3.0, 500, 500);
+
    TRACER tr;
    IMAGE_STORAGE img;
 
@@ -23,6 +27,8 @@ int main (int argc, char * argv[])
    tr.TraceScene(scn, img);
 
    SaveImageToJpeg(img, params.outputImage);
+
+   LogMessage(std::string("The work is done!"));
 
    return 0;
 }

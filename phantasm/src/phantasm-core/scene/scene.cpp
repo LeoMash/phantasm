@@ -3,6 +3,8 @@
 #include <vector>
 #include <algorithm>
 
+#include "light\light.h"
+
 #include "scene.h"
 
 struct SCENE::IMPL {
@@ -41,8 +43,19 @@ struct SCENE::IMPL {
       return objects[index];
    }
 
+   void SetCamera (VEC position, VEC lookAtVec, VEC upVec, double viewAngle, int width, int height)
+   {
+      camera = CAM(position, lookAtVec, upVec, viewAngle, width, height);
+   }
+
+   RAY GetRay (double x, double y) const
+   {
+      return camera.GetDirectionRay(x, y);
+   }
+
    std::vector<OBJECT *> objects;
- 
+   std::vector<LIGHT *> lights;
+   CAM camera;
 };
 
 SCENE::SCENE (void) : pImpl(new SCENE::IMPL())
@@ -53,6 +66,16 @@ SCENE::SCENE (void) : pImpl(new SCENE::IMPL())
 SCENE::~SCENE (void)
 {
    delete(pImpl);
+}
+
+void SCENE::SetCamera (VEC position, VEC lookAtVec, VEC upVec, double viewAngle, int width, int height)
+{
+   pImpl->SetCamera(position, lookAtVec, upVec, viewAngle, width, height);
+}
+
+RAY SCENE::GetRay (double x, double y) const
+{
+   return pImpl->GetRay(x, y);
 }
 
 void SCENE::AddObject (OBJECT * newObj)
@@ -107,9 +130,20 @@ OBJECT * SCENE_ITERATOR::operator* (void)
    return scene[index];
 }
 
-void SCENE_ITERATOR::operator++ (void)
+SCENE_ITERATOR & SCENE_ITERATOR::operator++ (void)
 {
    index++;
+
+   return *this;
+}
+
+SCENE_ITERATOR SCENE_ITERATOR::operator++ (int)
+{
+   SCENE_ITERATOR temp = *this;
+
+   index++;
+
+   return temp;
 }
 
 bool SCENE_ITERATOR::operator== (const SCENE_ITERATOR & it) const
@@ -148,9 +182,20 @@ const OBJECT * SCENE_CONST_ITERATOR::operator* (void) const
    return scene[index];
 }
 
-void SCENE_CONST_ITERATOR::operator++ (void)
+SCENE_CONST_ITERATOR & SCENE_CONST_ITERATOR::operator++ (void)
 {
    index++;
+
+   return (*this);
+}
+
+SCENE_CONST_ITERATOR SCENE_CONST_ITERATOR::operator++ (int)
+{
+   SCENE_CONST_ITERATOR temp = *this;
+
+   index++;
+
+   return temp;
 }
 
 bool SCENE_CONST_ITERATOR::operator== (const SCENE_CONST_ITERATOR & it) const

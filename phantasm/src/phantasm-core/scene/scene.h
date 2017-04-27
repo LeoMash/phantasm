@@ -5,8 +5,10 @@
 #include <vector>
 
 #include "phm_core.h"
+
 #include "objects\object.h"
 #include "objects\sphere.h"
+#include "camera\camera.h"
 
 class SCENE_ITERATOR;
 class SCENE_CONST_ITERATOR;
@@ -20,6 +22,9 @@ public:
 
    SCENE (void);
    ~SCENE (void);
+
+   void SetCamera (VEC position, VEC lookAtVec, VEC upVec, double viewAngle, int width, int height);
+   RAY  GetRay (double x, double y) const;
 
    void AddObject (OBJECT * newObj);
 
@@ -41,7 +46,10 @@ public:
    ~SCENE_ITERATOR (void);
 
    OBJECT * operator*  (void);
-   void     operator++ (void);
+
+   SCENE_ITERATOR & operator++ (void);
+   SCENE_ITERATOR operator++ (int);
+
 
    bool operator== (const SCENE_ITERATOR & it) const;
    bool operator!= (const SCENE_ITERATOR & it) const;
@@ -57,7 +65,9 @@ public:
    ~SCENE_CONST_ITERATOR (void);
 
    const OBJECT * operator*  (void) const;
-   void     operator++ (void);
+
+   SCENE_CONST_ITERATOR & operator++ (void);
+   SCENE_CONST_ITERATOR   operator++ (int);
 
    bool operator== (const SCENE_CONST_ITERATOR & it) const;
    bool operator!= (const SCENE_CONST_ITERATOR & it) const;

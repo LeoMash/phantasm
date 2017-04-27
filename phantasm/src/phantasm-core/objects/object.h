@@ -4,7 +4,7 @@
 
 #include "phm_core.h"
 
-#include "math\vecmat.h"
+#include "math\vec.h"
 #include "tracer\ray.h"
 #include "common.h"
 #include "material\material.h"
