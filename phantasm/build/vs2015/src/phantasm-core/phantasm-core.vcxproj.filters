@@ -58,6 +58,9 @@
     <ClInclude Include="..\..\..\..\src\phantasm-core\light\light.h">
       <Filter>light</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\scene\scene.hpp">
+      <Filter>scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\src\phantasm-core\objects\object.cpp">

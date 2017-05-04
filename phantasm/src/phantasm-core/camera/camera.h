@@ -12,7 +12,9 @@ public:
    CAM (void) {}
    ~CAM (void) {}
 
-   CAM (VEC position, VEC lookAtVec, VEC upVec, double viewAngle, int width, int height);
+   CAM (VEC position, VEC lookAtVec, VEC upVec, double viewAngle, int newWidth, int newHeight);
+
+   void SetWH (int newWidth, int newHeight);
 
    RAY GetDirectionRay (double x, double y) const; // x, y is in a range of [0, 1]
 
@@ -24,6 +26,9 @@ private:
    VEC up;
 
    double angle;
+
+   int width;
+   int height;
 
    double tanX;
    double tanY;

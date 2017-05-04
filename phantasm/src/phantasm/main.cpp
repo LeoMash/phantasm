@@ -17,18 +17,18 @@ int main (int argc, char * argv[])
 
    LoadSceneFromJSON(scn, params.sceneFile);
    
-   scn.SetCamera(VEC(10, 10, 10), VEC(0, 0, 0), VEC(0, 1, 0), 3.14 * 2.0 / 3.0, 500, 500);
+   scn.SetCameraWH(1500, 1500);
 
    TRACER tr;
    IMAGE_STORAGE img;
 
-   img.Allocate(500, 500);
+   img.Allocate(1500, 1500);
 
    tr.TraceScene(scn, img);
 
    SaveImageToJpeg(img, params.outputImage);
 
-   LogMessage(std::string("The work is done!"));
+   LogMessage(LOGGING_LEVELS::INFO, "The work is done!\n");
 
    return 0;
 }

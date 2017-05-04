@@ -10,9 +10,41 @@ TRACER::TRACER (void)
 
 }
 
+
 TRACER::~TRACER (void)
 {
 
+}
+
+
+
+void FindObjectsIntersections (const RAY & ray, const SCENE &scn, std::vector<INTERSECTION> & intersects)
+{
+   for (auto obj = scn.BeginObjects(); obj != scn.EndObjects(); ++obj) {
+      INTERSECTION intersect;
+
+      if ((*obj)->Intersect(ray, intersect)) {
+         intersects.push_back(intersect);
+      }
+   }
+}
+
+void FindMinIntersection (INTERSECTION & res, const RAY & ray, const std::vector<INTERSECTION> & intersects)
+{
+   double minDist = 1000000.0;
+
+   for (const INTERSECTION & i : intersects) {
+      
+      if ((i.intersectPoints[0] - ray.start).Norm() < minDist) {
+         minDist = (i.intersectPoints[0] - ray.start).Norm();
+         res = i;
+      }
+
+   }
+
+   if (minDist == 1000000.0) {
+      res.obj = NULL;
+   }
 }
 
 void TRACER::TraceScene (const SCENE & scn, IMAGE_STORAGE & img)
@@ -24,34 +56,35 @@ void TRACER::TraceScene (const SCENE & scn, IMAGE_STORAGE & img)
 
          std::vector<INTERSECTION> prms;
 
-         /*
-         std::for_each(scn.Begin(), scn.End(),
-            [&prms, &ray](const OBJECT * obj) {
-               INTERSECTION intersect;
-               if (obj->Intersect(ray, intersect)) {
-                  prms.push_back(intersect);
-               }
-            });
-         */
-
-         for (auto obj = scn.Begin(); obj != scn.End(); ++obj) {
-            INTERSECTION intersect;
-
-            if ((*obj)->Intersect(ray, intersect)) {
-               prms.push_back(intersect);
-            }
-         }
+         FindObjectsIntersections(ray, scn, prms);
 
          RGB color(0, 0, 0);
 
-         double minDist = 1000000.0;
-         std::for_each(prms.begin(), prms.end(),
-            [&minDist, &color](INTERSECTION prm) {
-              if (prm.distance < minDist) {
-                minDist = prm.distance;
-                color = prm.obj->GetColor();
-              } 
-            });
+         INTERSECTION inter;
+         
+         FindMinIntersection(inter, ray, prms);
+
+         if (inter.obj != NULL) {
+            color = (inter.obj->GetColor() * 0.125);
+
+
+            for (auto lights = scn.BeginLights(); lights != scn.EndLights(); ++lights) {
+
+               RAY lightRay((*lights)->GetPosition(), inter.intersectPoints[0] - (*lights)->GetPosition());
+
+               std::vector<INTERSECTION> lightIntersections;
+
+               FindObjectsIntersections(lightRay, scn, lightIntersections);
+
+               INTERSECTION lightInt;
+
+               FindMinIntersection(lightInt, lightRay, lightIntersections);
+
+               if (lightInt.obj == inter.obj) {
+                  color += inter.obj->GetColor() * 0.125;
+               }
+            }
+         }
 
          RGB * pixelColor = reinterpret_cast<RGB *>(img.data + 3 * (j * img.w + i));
          (*pixelColor) = color;

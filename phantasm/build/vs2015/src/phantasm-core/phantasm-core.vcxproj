@@ -194,6 +194,7 @@
     <ClInclude Include="..\..\..\..\src\phantasm-core\phm_core_export.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\phm_core.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\scene\scene.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\scene\scene.hpp" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\scene_loader\scene_loader.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\objects\sphere.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\tracer\ray.h" />

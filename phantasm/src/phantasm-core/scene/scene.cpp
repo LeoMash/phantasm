@@ -12,20 +12,28 @@ struct SCENE::IMPL {
    {
    
    }
-   
+
    ~IMPL (void)
    {
       Clear();
    }
+
 
    void Clear (void)
    {
       objects.clear();
    }
 
+
    void AddObject (OBJECT * newObj)
    {
       objects.push_back(newObj);
+   }
+
+
+   void AddLight (LIGHT * newObj)
+   {
+      lights.push_back(newObj);
    }
 
    size_t GetSize (void)
@@ -33,25 +41,46 @@ struct SCENE::IMPL {
       return objects.size();
    }
 
-   OBJECT * operator[] (int index)
+
+
+   std::vector<LIGHT *> & GetLightsVector (void)
    {
-      return objects[index];
+      return lights;
    }
 
-   const OBJECT * operator[] (int index) const
+   const std::vector<LIGHT *> & GetLightsVector (void) const
    {
-      return objects[index];
+      return lights;
    }
+
+   std::vector<OBJECT *> & GetObjectsVector (void)
+   {
+      return objects;
+   }
+
+   const std::vector<OBJECT *> & GetObjectsVector (void) const
+   {
+      return objects;
+   }
+
+
 
    void SetCamera (VEC position, VEC lookAtVec, VEC upVec, double viewAngle, int width, int height)
    {
       camera = CAM(position, lookAtVec, upVec, viewAngle, width, height);
    }
 
+   void SetCameraWH (int W, int H)
+   {
+      camera.SetWH(W, H);
+   }
+
    RAY GetRay (double x, double y) const
    {
       return camera.GetDirectionRay(x, y);
    }
+
+
 
    std::vector<OBJECT *> objects;
    std::vector<LIGHT *> lights;
@@ -73,6 +102,11 @@ void SCENE::SetCamera (VEC position, VEC lookAtVec, VEC upVec, double viewAngle,
    pImpl->SetCamera(position, lookAtVec, upVec, viewAngle, width, height);
 }
 
+void SCENE::SetCameraWH (int W, int H)
+{
+   pImpl->SetCameraWH(W, H);
+}
+
 RAY SCENE::GetRay (double x, double y) const
 {
    return pImpl->GetRay(x, y);
@@ -83,135 +117,53 @@ void SCENE::AddObject (OBJECT * newObj)
    pImpl->AddObject(newObj);
 }
 
-OBJECT * SCENE::operator[] (unsigned int index)
+void SCENE::AddLight (LIGHT * newLight)
 {
-   return (*pImpl)[index];
-}
-
-const OBJECT * SCENE::operator[] (unsigned int index) const
-{
-   return (*pImpl)[index];
-}
-
-SCENE_ITERATOR SCENE::Begin (void)
-{
-   return SCENE_ITERATOR(0, *pImpl);
-}
-
-SCENE_ITERATOR SCENE::End (void)
-{
-   return SCENE_ITERATOR(static_cast<unsigned int>(pImpl->GetSize()), *pImpl);
-}
-
-SCENE_CONST_ITERATOR SCENE::Begin (void) const
-{
-   return SCENE_CONST_ITERATOR(0, *pImpl);
-}
-
-SCENE_CONST_ITERATOR SCENE::End (void) const
-{
-   return SCENE_CONST_ITERATOR(static_cast<unsigned int>(pImpl->GetSize()), *pImpl);
-}
-
-SCENE_ITERATOR::SCENE_ITERATOR (unsigned int ind, SCENE::IMPL & scn) : index(ind), scene(scn)
-{
-}
-
-SCENE_ITERATOR::SCENE_ITERATOR (const SCENE_ITERATOR & it) : index(it.index), scene(it.scene)
-{
-}
-
-SCENE_ITERATOR::~SCENE_ITERATOR (void)
-{
-}
-
-OBJECT * SCENE_ITERATOR::operator* (void)
-{
-   return scene[index];
-}
-
-SCENE_ITERATOR & SCENE_ITERATOR::operator++ (void)
-{
-   index++;
-
-   return *this;
-}
-
-SCENE_ITERATOR SCENE_ITERATOR::operator++ (int)
-{
-   SCENE_ITERATOR temp = *this;
-
-   index++;
-
-   return temp;
-}
-
-bool SCENE_ITERATOR::operator== (const SCENE_ITERATOR & it) const
-{
-   if (&it.scene == &scene && it.index == index) {
-      return true;
-   }
-
-   return false;
-}
-
-bool SCENE_ITERATOR::operator!= (const SCENE_ITERATOR & it) const
-{
-   if (&it.scene != &scene || it.index != index) {
-      return true;
-   }
-
-   return false;
+   pImpl->AddLight(newLight);
 }
 
 
-SCENE_CONST_ITERATOR::SCENE_CONST_ITERATOR (unsigned int ind, SCENE::IMPL & scn) : index(ind), scene(scn)
+
+SCENE::SCENE_LIGHTS_ITERATOR SCENE::BeginLights (void)
 {
+   return SCENE_LIGHTS_ITERATOR(pImpl->GetLightsVector().begin(), &pImpl->GetLightsVector());
 }
 
-SCENE_CONST_ITERATOR::SCENE_CONST_ITERATOR (const SCENE_CONST_ITERATOR & it) : index(it.index), scene(it.scene)
+SCENE::SCENE_LIGHTS_ITERATOR SCENE::EndLights (void)
 {
+   return SCENE_LIGHTS_ITERATOR(pImpl->GetLightsVector().end(), &pImpl->GetLightsVector());
 }
 
-SCENE_CONST_ITERATOR::~SCENE_CONST_ITERATOR (void)
+SCENE::SCENE_CONST_LIGHTS_ITERATOR SCENE::BeginLights (void) const
 {
+   return SCENE_CONST_LIGHTS_ITERATOR(pImpl->GetLightsVector().begin(), &pImpl->GetLightsVector());
 }
 
-const OBJECT * SCENE_CONST_ITERATOR::operator* (void) const
+SCENE::SCENE_CONST_LIGHTS_ITERATOR SCENE::EndLights (void) const
 {
-   return scene[index];
+   return SCENE_CONST_LIGHTS_ITERATOR(pImpl->GetLightsVector().end(), &pImpl->GetLightsVector());
 }
 
-SCENE_CONST_ITERATOR & SCENE_CONST_ITERATOR::operator++ (void)
-{
-   index++;
 
-   return (*this);
+
+SCENE::SCENE_OBJECTS_ITERATOR SCENE::BeginObjects (void)
+{
+   return SCENE_OBJECTS_ITERATOR(pImpl->GetObjectsVector().begin(), &pImpl->GetObjectsVector());
 }
 
-SCENE_CONST_ITERATOR SCENE_CONST_ITERATOR::operator++ (int)
+SCENE::SCENE_OBJECTS_ITERATOR SCENE::EndObjects (void)
 {
-   SCENE_CONST_ITERATOR temp = *this;
-
-   index++;
-
-   return temp;
+   return SCENE_OBJECTS_ITERATOR(pImpl->GetObjectsVector().end(), &pImpl->GetObjectsVector());
 }
 
-bool SCENE_CONST_ITERATOR::operator== (const SCENE_CONST_ITERATOR & it) const
+SCENE::SCENE_CONST_OBJECTS_ITERATOR SCENE::BeginObjects (void) const
 {
-   if (&it.scene == &scene && it.index == index) {
-      return true;
-   }
-
-   return false;
+   return SCENE_CONST_OBJECTS_ITERATOR(pImpl->GetObjectsVector().begin(), &pImpl->GetObjectsVector());
 }
 
-bool SCENE_CONST_ITERATOR::operator!= (const SCENE_CONST_ITERATOR & it) const
+SCENE::SCENE_CONST_OBJECTS_ITERATOR SCENE::EndObjects (void) const
 {
-   if (&it.scene != &scene || it.index != index) {
-      return true;
-   }
-
-   return false;
+   return SCENE_CONST_OBJECTS_ITERATOR(pImpl->GetObjectsVector().end(), &pImpl->GetObjectsVector());
 }
+
+

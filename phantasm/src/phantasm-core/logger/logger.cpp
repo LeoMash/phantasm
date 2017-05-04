@@ -1,10 +1,13 @@
-#include "easylogging++.h"
+#define _ELPP_NO_DEFAULT_LOG_FILE
+
+#include <easylogging++.h>
 
 #include "logger.h"
 
 INITIALIZE_EASYLOGGINGPP
 
-void StartLogging (void)
+
+PHM_CORE_API void StartLogging (void)
 {
 
    el::Loggers::configureFromGlobal("logging.conf");
@@ -13,8 +16,21 @@ void StartLogging (void)
 
 }
 
-void LogMessage (std::string str)
+
+PHM_CORE_API void LogMessage (LOGGING_LEVELS level, const std::string & msg)
 {
-   LOG(INFO) << str;
+   switch (level) {
+   case LOGGING_LEVELS::INFO:
+      LOG(INFO) << msg;
+      break;
+
+   case LOGGING_LEVELS::WARNING:
+      LOG(WARNING) << msg;
+      break;
+
+   case LOGGING_LEVELS::ERROR:
+      LOG(ERROR) << msg;
+      break;
+   }
 }
 

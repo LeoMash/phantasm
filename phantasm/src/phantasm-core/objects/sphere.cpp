@@ -21,13 +21,14 @@ bool SPHERE::Intersect (const RAY & ray, INTERSECTION & intersection) const
    double b = ray.dir.Dot(dist);
    double d = b * b - dist.Dot(dist) + radius * radius;
 
-   static double eps = 0.001;
+   static double eps = 1e-8;
 
-   if (d < eps) {
+   if (d < 0) {
       return false;
    }
 
-   intersection.distance = b - sqrt(d);
+   intersection.intersectPoints.push_back(ray.start + VEC(ray.dir) * (b - sqrt(d)));
+   intersection.intersectPoints.push_back(ray.start + VEC(ray.dir) * (b + sqrt(d)));
    intersection.obj = this;
 
    return true;

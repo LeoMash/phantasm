@@ -4,6 +4,8 @@
 
 #include "phm_core.h"
 
+#include <vector>
+
 #include "math\vec.h"
 #include "tracer\ray.h"
 #include "common.h"
@@ -12,7 +14,7 @@
 class OBJECT;
 
 struct INTERSECTION {
-   double distance;
+   std::vector<VEC> intersectPoints;
    const OBJECT * obj;
 };
 
