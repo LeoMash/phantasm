@@ -17,9 +17,31 @@ struct PHM_CORE_API RGB {
    RGB   operator+  (const RGB d) const;
    RGB & operator+= (const RGB d);
 
+
+   RGB & RGB::Clamp (void);
+
    BYTE R;
    BYTE G;
    BYTE B;
+};
+
+struct PHM_CORE_API MTL {
+   MTL (void);
+   ~MTL (void);
+
+   MTL (double ka, double ks, double kd, double phon, bool reflection, double refraction, RGB col);
+
+
+   double Ka;
+   double Ks;
+   double Kd;
+   double phong;
+
+   bool refl;
+   double refr;
+
+
+   RGB color;
 };
 
 #endif // _MATERIAL_H_

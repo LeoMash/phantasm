@@ -105,6 +105,19 @@ VEC VEC::operator- (const VEC & r) const
    return res;
 }
 
+VEC VEC::operator- (void) const
+{
+   VEC res;
+
+   res.data[0] = -data[0];
+   res.data[1] = -data[1];
+   res.data[2] = -data[2];
+
+   return res;
+}
+
+
+
 double VEC::Norm (void) const
 {
    double res = 0.0;
@@ -113,7 +126,7 @@ double VEC::Norm (void) const
       res += data[i] * data[i];
    }
 
-   res = sqrt(fabs(res));
+   res = sqrt(res);
 
    return res;
 }
@@ -122,8 +135,10 @@ VEC & VEC::Normalize (void)
 {
    double n = Norm();
 
-   for (int i = 0; i < 3; ++i) {
-      data[i] /= n;
+   if (n != 0) {
+      for (int i = 0; i < 3; ++i) {
+         data[i] /= n;
+      }
    }
 
    return *this;
@@ -145,6 +160,11 @@ VEC VEC::Cross (const VEC & r) const
    return VEC(data[1] * r.data[2] - data[2] * r.data[1], 
               data[2] * r.data[0] - data[0] * r.data[2],
               data[0] * r.data[1] - data[1] * r.data[0]);
+}
+
+VEC VEC::Reflect (const VEC & n) const
+{
+   return n * (2.0 * Dot(n)) - *this;
 }
 
 VEC VEC::operator/ (double d) const

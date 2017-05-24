@@ -7,7 +7,7 @@ OBJECT::OBJECT (void) : position(VEC())
 
 }
 
-OBJECT::OBJECT (VEC pos, RGB clr) : position(pos), color(clr)
+OBJECT::OBJECT (VEC pos, MTL mtl) : position(pos), material(mtl)
 {
 
 }

@@ -4,23 +4,18 @@
 
 #include "camera.h"
 
-CAM::CAM (VEC position, VEC lookAtVec, VEC upVec, double viewAngle, int newWidth, int newHeight) : pos(position), angle(viewAngle), width(newWidth), height(newHeight)
+CAM::CAM (VEC position, VEC lookAtVec, VEC upVec, double viewAngle, int newWidth, int newHeight) : pos(position)
 {
    dir = (lookAtVec - position).Normalize();
    right = (upVec.Cross(dir)).Normalize();
    up = (right.Cross(dir)).Normalize();
 
-   tanX = tan(angle);
-   tanY = tan((static_cast<double>(newHeight) / static_cast<double>(newWidth)) * angle);
+   FOVtangent = tan(viewAngle / 360.0 * M_PI);     // tan(FOV / 2)
 }
 
 void CAM::SetWH (int newWidth, int newHeight)
 {
-   width = newWidth;
-   height = newHeight;
-   
-   tanX = tan(angle);
-   tanY = tan((static_cast<double>(newHeight) / static_cast<double>(newWidth)) * angle);
+   aspectRatio = newWidth / newHeight;
 }
 
 
@@ -30,8 +25,8 @@ RAY CAM::GetDirectionRay (double x, double y) const
       LogMessage(LOGGING_LEVELS::ERROR, "Error in creating ray from camera check x & y : ");
    }
 
-   VEC xDir = right * ((x - 0.5) * tanX);
-   VEC yDir = up * ((y - 0.5) * tanY);
+   VEC xDir = right * (2.0 * x - 1.0) * aspectRatio * FOVtangent;
+   VEC yDir = up * (1.0 - 2.0 * y) * FOVtangent;
 
    VEC resDir = (dir + xDir + yDir).Normalize();
 

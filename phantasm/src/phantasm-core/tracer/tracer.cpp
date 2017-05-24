@@ -5,15 +5,20 @@
 #include "ray.h"
 #include "tracer.h"
 
+#define INF 1e8
+
+#define BIAS 1e-4
+
+#define MAX_DEPTH 3
+
+
 TRACER::TRACER (void)
 {
-
 }
 
 
 TRACER::~TRACER (void)
 {
-
 }
 
 
@@ -29,65 +34,108 @@ void FindObjectsIntersections (const RAY & ray, const SCENE &scn, std::vector<IN
    }
 }
 
+
 void FindMinIntersection (INTERSECTION & res, const RAY & ray, const std::vector<INTERSECTION> & intersects)
 {
-   double minDist = 1000000.0;
+   double minDist = INF;
 
    for (const INTERSECTION & i : intersects) {
       
-      if ((i.intersectPoints[0] - ray.start).Norm() < minDist) {
-         minDist = (i.intersectPoints[0] - ray.start).Norm();
+      double dist = (i.intersectPoints[0] - ray.start).Norm();
+      if (dist > 0 && dist < minDist) {
+         minDist = dist;
          res = i;
       }
 
    }
 
-   if (minDist == 1000000.0) {
+   if (minDist == INF) {
       res.obj = NULL;
    }
 }
+
+
+
+double Clamp (double x)
+{
+   if (x < 0.0) {
+      return 0.0;
+   }
+   return x;
+}
+
+
+RGB Trace (const RAY & ray, const SCENE & scn, int depth)
+{
+   RGB backgroundColor = scn.GetBackgroundColor();
+
+   std::vector<INTERSECTION> prms;
+
+   FindObjectsIntersections(ray, scn, prms);
+
+   INTERSECTION inter;
+
+   FindMinIntersection(inter, ray, prms);
+
+   if (inter.obj == NULL) {
+      return backgroundColor;
+   }
+
+
+   RGB color = backgroundColor;
+
+   MTL mtl = inter.obj->GetMaterial();
+
+   LIGHT * light = (*scn.BeginLights());
+
+   VEC lightPos = light->GetPosition();
+   VEC normalInHit = inter.obj->GetNormal(inter.intersectPoints[0]);
+   VEC lightDir = (inter.intersectPoints[0] - lightPos).Normalize();
+
+   RGB ambColor = mtl.color;
+   RGB diffColor;
+   RGB specColor;
+
+
+   RAY lightRay(inter.intersectPoints[0] + normalInHit * BIAS, -lightDir);
+
+   std::vector<INTERSECTION> lightIntersections;
+
+   FindObjectsIntersections(lightRay, scn, lightIntersections);
+
+   INTERSECTION lightInt;
+
+   FindMinIntersection(lightInt, lightRay, lightIntersections);
+
+   if (lightInt.obj == NULL) {
+
+      double diff = Clamp(normalInHit.Dot(-lightDir));
+      
+      diffColor = mtl.color * diff;
+
+
+      VEC r = lightDir.Reflect(normalInHit);
+      double spec = Clamp(r.Dot(ray.dir));
+      
+      specColor = light->GetColor() * pow(spec, mtl.phong);
+   }
+
+   color = ambColor * mtl.Ka + diffColor * mtl.Kd + specColor * mtl.Ks;
+
+
+   return color;
+}
+
 
 void TRACER::TraceScene (const SCENE & scn, IMAGE_STORAGE & img)
 {
    for (int j = 0; j < img.h; j++) {
       for (int i = 0; i < img.w; i++) {
-         RAY ray = scn.GetRay(static_cast<double>(j) / static_cast<double>(img.w), 
-                              static_cast<double>(i) / static_cast<double>(img.h));
-
-         std::vector<INTERSECTION> prms;
-
-         FindObjectsIntersections(ray, scn, prms);
-
-         RGB color(0, 0, 0);
-
-         INTERSECTION inter;
-         
-         FindMinIntersection(inter, ray, prms);
-
-         if (inter.obj != NULL) {
-            color = (inter.obj->GetColor() * 0.125);
-
-
-            for (auto lights = scn.BeginLights(); lights != scn.EndLights(); ++lights) {
-
-               RAY lightRay((*lights)->GetPosition(), inter.intersectPoints[0] - (*lights)->GetPosition());
-
-               std::vector<INTERSECTION> lightIntersections;
-
-               FindObjectsIntersections(lightRay, scn, lightIntersections);
-
-               INTERSECTION lightInt;
-
-               FindMinIntersection(lightInt, lightRay, lightIntersections);
-
-               if (lightInt.obj == inter.obj) {
-                  color += inter.obj->GetColor() * 0.125;
-               }
-            }
-         }
+         RAY ray = scn.GetRay(static_cast<double>(i) / static_cast<double>(img.w), 
+                              static_cast<double>(j) / static_cast<double>(img.h));
 
          RGB * pixelColor = reinterpret_cast<RGB *>(img.data + 3 * (j * img.w + i));
-         (*pixelColor) = color;
+         (*pixelColor) = Trace(ray, scn, 0);
       }
    }
 }

@@ -17,12 +17,15 @@ int main (int argc, char * argv[])
 
    LoadSceneFromJSON(scn, params.sceneFile);
    
-   scn.SetCameraWH(1500, 1500);
+   int W = 1500;
+   int H = 500;
+
+   scn.SetCameraWH(W, H);
 
    TRACER tr;
    IMAGE_STORAGE img;
 
-   img.Allocate(1500, 1500);
+   img.Allocate(W, H);
 
    tr.TraceScene(scn, img);
 

@@ -15,4 +15,9 @@
 #define   BYTE unsigned char
 #endif // BYTE
 
+#ifndef   DBYTE
+#define   DBYTE unsigned short
+#endif // DBYTE
+
+
 #endif // _COMMON_CORE_H_

@@ -16,7 +16,7 @@ public:
 
    void SetWH (int newWidth, int newHeight);
 
-   RAY GetDirectionRay (double x, double y) const; // x, y is in a range of [0, 1]
+   RAY GetDirectionRay (double x, double y) const;
 
 private:
    VEC pos;
@@ -25,13 +25,8 @@ private:
    VEC right;
    VEC up;
 
-   double angle;
-
-   int width;
-   int height;
-
-   double tanX;
-   double tanY;
+   double FOVtangent;
+   double aspectRatio;
 };
 
 #endif // _CAMERA_H_

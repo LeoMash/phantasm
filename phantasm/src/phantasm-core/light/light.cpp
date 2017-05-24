@@ -18,6 +18,11 @@ VEC POINT_LIGHT::GetPosition (void) const
    return pos;
 }
 
+RGB POINT_LIGHT::GetColor (void) const
+{
+   return color;
+}
+
 LIGHT::LIGHT (void)
 {
 }

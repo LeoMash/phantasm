@@ -25,13 +25,12 @@ PHM_CORE_API bool  LoadSceneFromJSON (SCENE & scn, std::string fileName)
       return false;
    }
 
-
-
-
+   const Json::Value bckg = root["background"];
+   scn.SetBackgroundColor(RGB(bckg[0].asUInt(), bckg[1].asUInt(), bckg[2].asUInt()));
 
    const Json::Value cam = root["camera"];
 
-   const Json::Value camPos       = cam["position"];
+   const Json::Value camPos    = cam["position"];
    const Json::Value lookAt    = cam["lookAt"];
    const Json::Value up        = cam["up"];
    const Json::Value viewAngle = cam["viewAngle"];
@@ -68,17 +67,29 @@ PHM_CORE_API bool  LoadSceneFromJSON (SCENE & scn, std::string fileName)
    for (unsigned int index = 0; index < objects.size(); index++) {
       const Json::Value obj = objects[index];
 
-      const Json::Value pos =   obj["position"];
+      const Json::Value pos   = obj["position"];
       const Json::Value color = obj["color"];
+      const Json::Value mtl   = obj["material"];
 
       scn.AddObject(new SPHERE(
          obj["radius"].asDouble(),
+
+
          VEC(pos[0].asDouble(), 
              pos[1].asDouble(),
              pos[2].asDouble()),
-         RGB(color[0].asUInt(), 
-             color[1].asUInt(),
-             color[2].asUInt())));
+
+
+         MTL(mtl["Ka"].asDouble(),
+             mtl["Ks"].asDouble(),
+             mtl["Kd"].asDouble(),
+             mtl["Phong"].asDouble(),
+             mtl["Refl"].asBool(),
+             mtl["Refr"].asDouble(),
+
+             RGB(color[0].asUInt(),
+                 color[1].asUInt(),
+                 color[2].asUInt()))));
    }
 
    return true;

@@ -1,36 +1,48 @@
 {
    "camera": 
-       {"position" : [10, 10, 10],
-        "lookAt"   : [0, 0, 0],
+       {"position" : [5, 5, -20],
+        "lookAt"   : [3, 3, 3],
         "up"       : [0, 1, 0],
         "viewAngle": 2.09},
 
    "lights": [
-       {"position" : [10, 10, 0],
+       {"type"     : "point",
+        "position" : [10, 10, 0],
         "color"    : [255, 255, 255]
        }
 
    ],
 
    "objects": [ 
+                               
        {"type" :    "sphere",
         "position": [0.0, 0.0, 0.0],
+        "material": [0.1, 0.3, 0.5, 0.0, 0.0, 10.0],
         "color":    [255, 255, 0], 
         "radius":   1.0},
 
        {"type" :    "sphere",
         "position": [0.5,  5.0, 0.0],
+        "material": [0.1, 0.3, 0.5, 0.0, 0.0, 10.0],
         "color":    [255, 0, 0], 
         "radius":   1.0},
       
        {"type" :    "sphere",
         "position": [-6.0, 0.5, 0.0],
+        "material": [0.1, 0.3, 0.5, 0.0, 0.0, 10.0],
         "color":    [0, 255, 0], 
         "radius":   5.0},
 
        {"type" :    "sphere",
         "position": [3.0, 3.0, 3.0],
+        "material": [0.1, 0.3, 0.5, 0.0, 0.0, 10.0],
         "color":    [0, 0, 255], 
         "radius":   1.0}
    ]
 }
+
+{"type" :    "sphere",
+        "position": [9.9, 9.9, 0.0],
+        "material": [1.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+        "color":    [255, 255, 255], 
+        "radius":   1.0}

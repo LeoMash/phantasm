@@ -85,37 +85,55 @@ struct SCENE::IMPL {
    std::vector<OBJECT *> objects;
    std::vector<LIGHT *> lights;
    CAM camera;
+   RGB backgroundColor;
 };
+
 
 SCENE::SCENE (void) : pImpl(new SCENE::IMPL())
 {
 
 }
 
+
 SCENE::~SCENE (void)
 {
    delete(pImpl);
 }
+
 
 void SCENE::SetCamera (VEC position, VEC lookAtVec, VEC upVec, double viewAngle, int width, int height)
 {
    pImpl->SetCamera(position, lookAtVec, upVec, viewAngle, width, height);
 }
 
+
 void SCENE::SetCameraWH (int W, int H)
 {
    pImpl->SetCameraWH(W, H);
 }
+
 
 RAY SCENE::GetRay (double x, double y) const
 {
    return pImpl->GetRay(x, y);
 }
 
+void SCENE::SetBackgroundColor (const RGB & color)
+{
+   pImpl->backgroundColor = color;
+}
+
+RGB SCENE::GetBackgroundColor(void) const
+{
+   return pImpl->backgroundColor;
+}
+
+
 void SCENE::AddObject (OBJECT * newObj)
 {
    pImpl->AddObject(newObj);
 }
+
 
 void SCENE::AddLight (LIGHT * newLight)
 {

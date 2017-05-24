@@ -21,16 +21,18 @@ struct INTERSECTION {
 class PHM_CORE_API OBJECT {
 public:
    OBJECT (void);
-   OBJECT (VEC pos, RGB clr);
+   OBJECT (VEC pos, MTL mtl);
    virtual ~OBJECT (void);
 
    virtual bool Intersect (const RAY & ray, INTERSECTION & intersection) const  = 0;
 
-   RGB GetColor    (void) const { return color; }
+   virtual VEC GetNormal (VEC point) const = 0;
+
+   MTL GetMaterial (void) const { return material; }
    VEC GetPosition (void) const { return position; }
 private:
    VEC position;
-   RGB color;
+   MTL material;
 };
 
 #endif // _OBJECT_H_

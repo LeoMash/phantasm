@@ -9,10 +9,12 @@
 class PHM_CORE_API SPHERE : public OBJECT {
 public:
    SPHERE (void);
-   SPHERE (double rad, VEC pos, RGB color);
+   SPHERE (double rad, VEC pos, MTL mtl);
    ~SPHERE (void);
 
    bool Intersect (const RAY & ray, INTERSECTION & intersection) const override;
+
+   VEC GetNormal (VEC point) const override;
 private:
    double radius;
 };

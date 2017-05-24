@@ -20,12 +20,15 @@ public:
    VEC       operator+   (const VEC & r) const;
    VEC &     operator+=  (const VEC & r);
    VEC       operator-   (const VEC & r) const;
+   VEC       operator-   (void) const;
 
    double Norm (void) const;
    VEC &  Normalize (void);
 
    double Dot   (const VEC & r) const;
    VEC    Cross (const VEC & r) const;
+
+   VEC Reflect (const VEC & n) const;
 private:
    double data[3];
 };

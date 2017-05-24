@@ -40,6 +40,9 @@ public:
 
    RAY  GetRay (double x, double y) const;
 
+   void SetBackgroundColor (const RGB & color);
+   RGB GetBackgroundColor (void) const;
+
    void AddObject (OBJECT * newObj);
 
    void AddLight (LIGHT * newLight);
