@@ -64,6 +64,9 @@
     <ClInclude Include="..\..\..\..\src\phantasm-core\objects\plane.h">
       <Filter>objects</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\3rd-party\src\lodepng\lodepng.h">
+      <Filter>3rd-party\lodepng</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\src\phantasm-core\objects\object.cpp">
@@ -120,6 +123,9 @@
     <ClCompile Include="..\..\..\..\src\phantasm-core\objects\plane.cpp">
       <Filter>objects</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\3rd-party\src\lodepng\lodepng.cpp">
+      <Filter>3rd-party\lodepng</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="math">
@@ -166,6 +172,9 @@
     </Filter>
     <Filter Include="light">
       <UniqueIdentifier>{bbf15b01-cccb-48da-a82e-0944ff71c06a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rd-party\lodepng">
+      <UniqueIdentifier>{b7594f57-2a43-4e58-8d9e-acbb03fa0d90}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -21,7 +21,7 @@ bool PLANE::Intersect (const RAY & ray, INTERSECTION & intersection) const
 {
    double scalProd = normal.Dot(ray.dir);
 
-   if (scalProd > 0.0) {
+   if (fabs(scalProd) > EPS) {
       VEC p = GetPosition() - ray.start;
 
       double t = p.Dot(normal) / scalProd;

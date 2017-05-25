@@ -10,6 +10,8 @@ void PrintHelp (void)
    puts("   -output-file  -o  for output file");
    puts("   -width        -w  for image width");
    puts("   -height       -h  for image height");
+   puts("   -file-type    -t  for image type");
+
 }
 
 bool ParseConsole (int argc, char * argv[], INPUT_PARAMS & params)
@@ -34,6 +36,12 @@ bool ParseConsole (int argc, char * argv[], INPUT_PARAMS & params)
 
       } else if (!strcmp(argv[i], "-h") || !strcmp(argv[i], "-height")) {
          params.h = atoi(argv[i + 1]);
+      } else if (!strcmp(argv[i], "-t") || !strcmp(argv[i], "-file-type")) {
+         if (!strcmp(argv[i + 1], "jpeg")) {
+            params.type = INPUT_PARAMS::IMG_TYPE::JPEG;
+         } else {
+            params.type = INPUT_PARAMS::IMG_TYPE::PNG;
+         }
       }
    }
 

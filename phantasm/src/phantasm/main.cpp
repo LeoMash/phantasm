@@ -29,7 +29,18 @@ int main (int argc, char * argv[])
 
    tr.TraceScene(scn, img);
 
-   SaveImageToJpeg(img, params.outputImage);
+   switch (params.type) {
+
+   case INPUT_PARAMS::IMG_TYPE::JPEG:
+      SaveImageToJpeg(img, params.outputImage);
+      break;
+
+   default:
+      SaveImageToPng(img, params.outputImage);
+      break;
+
+   }
+   
 
    LogInfo("The work is done!\n");
 

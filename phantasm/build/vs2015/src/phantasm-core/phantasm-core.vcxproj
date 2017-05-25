@@ -161,6 +161,7 @@
     <ClCompile Include="..\..\..\..\3rd-party\src\easylogging\easylogging++.cc" />
     <ClCompile Include="..\..\..\..\3rd-party\src\jpeg-compressor\jpge.cpp" />
     <ClCompile Include="..\..\..\..\3rd-party\src\jsoncpp\jsoncpp.cpp" />
+    <ClCompile Include="..\..\..\..\3rd-party\src\lodepng\lodepng.cpp" />
     <ClCompile Include="..\..\..\..\src\phantasm-core\camera\camera.cpp" />
     <ClCompile Include="..\..\..\..\src\phantasm-core\image_saver\image_saver.cpp" />
     <ClCompile Include="..\..\..\..\src\phantasm-core\image_storage\image_storage.cpp" />
@@ -182,6 +183,7 @@
     <ClInclude Include="..\..\..\..\3rd-party\src\jpeg-compressor\jpge.h" />
     <ClInclude Include="..\..\..\..\3rd-party\src\jsoncpp\json\json-forwards.h" />
     <ClInclude Include="..\..\..\..\3rd-party\src\jsoncpp\json\json.h" />
+    <ClInclude Include="..\..\..\..\3rd-party\src\lodepng\lodepng.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\camera\camera.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\common.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\image_saver\image_saver.h" />

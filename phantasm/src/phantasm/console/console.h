@@ -9,6 +9,10 @@ struct INPUT_PARAMS {
    std::string outputImage;
    int w;
    int h;
+   enum class IMG_TYPE {
+      JPEG,
+      PNG
+   } type;
 };
 
 void PrintHelp (void);
