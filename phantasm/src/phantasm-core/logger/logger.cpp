@@ -34,3 +34,21 @@ PHM_CORE_API void LogMessage (LOGGING_LEVELS level, const std::string & msg)
    }
 }
 
+
+PHM_CORE_API void LogInfo (const std::string & msg)
+{
+   LOG(INFO) << msg;
+}
+
+
+PHM_CORE_API void LogWarning (const std::string & msg)
+{
+   LOG(WARNING) << msg;
+}
+
+
+PHM_CORE_API void LogError(const std::string & msg)
+{
+   LOG(ERROR) << msg;
+}
+

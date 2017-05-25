@@ -23,7 +23,7 @@
       [                        
        {
            "type" :    "sphere",
-           "position": [0.0, 0.0, 0.0],
+           "position": [4.0, 0.0, 30.0],
            "material": 
                        {
                         "Ka"    : 0.3, 
@@ -33,9 +33,43 @@
                         "Refl"  : false, 
                         "Refr"  : 0.0
                        },
-           "color":    [255, 255, 255], 
+           "color":    [0, 0, 255], 
            "radius":   5.0
+       },
+
+       {
+           "type" :    "sphere",
+           "position": [-9.0, 0.0, -4.0],
+           "material": 
+                       {
+                        "Ka"    : 0.3, 
+                        "Ks"    : 0.4, 
+                        "Kd"    : 0.5, 
+                        "Phong" : 10.0, 
+                        "Refl"  : false, 
+                        "Refr"  : 0.0
+                       },
+           "color":    [0, 255, 0], 
+           "radius":   5.0
+       },
+
+      {
+           "type" :    "plane",
+           "position": [0.0, 10.0, 0.0],
+           "material": 
+                       {
+                        "Ka"    : 0.3, 
+                        "Ks"    : 0.4, 
+                        "Kd"    : 0.5, 
+                        "Phong" : 10.0, 
+                        "Refl"  : true, 
+                        "Refr"  : 0.0
+                       },
+           "color":    [255, 255, 255], 
+           "normal":   [0, 1, 0]
        }
+
+
      ]
 }
 

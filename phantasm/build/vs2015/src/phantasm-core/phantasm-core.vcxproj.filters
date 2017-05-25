@@ -61,6 +61,9 @@
     <ClInclude Include="..\..\..\..\src\phantasm-core\scene\scene.hpp">
       <Filter>scene</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\objects\plane.h">
+      <Filter>objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\src\phantasm-core\objects\object.cpp">
@@ -113,6 +116,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\src\phantasm-core\material\material.cpp">
       <Filter>material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\objects\plane.cpp">
+      <Filter>objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

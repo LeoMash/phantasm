@@ -9,7 +9,7 @@
 class PHM_CORE_API SPHERE : public OBJECT {
 public:
    SPHERE (void);
-   SPHERE (double rad, VEC pos, MTL mtl);
+   SPHERE (const double & rad, VEC pos, const MTL & mtl);
    ~SPHERE (void);
 
    bool Intersect (const RAY & ray, INTERSECTION & intersection) const override;

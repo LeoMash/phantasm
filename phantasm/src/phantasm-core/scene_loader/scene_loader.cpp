@@ -3,6 +3,7 @@
 #include "scene_loader.h"
 
 #include "objects\sphere.h"
+#include "objects\plane.h"
 #include "logger\logger.h"
 
 #include "json\json.h"
@@ -19,8 +20,7 @@ PHM_CORE_API bool  LoadSceneFromJSON (SCENE & scn, std::string fileName)
 
    if (!parsingSuccessful)
    {
-      LogMessage(LOGGING_LEVELS::ERROR, "Failed to parse JSON file : " + reader.getFormattedErrorMessages());
-      //LogError("Failed to parse JSON file : " + reader.getFormattedErrorMessages());
+      LogError("Failed to parse JSON file : " + reader.getFormattedErrorMessages());
 
       return false;
    }
@@ -67,29 +67,60 @@ PHM_CORE_API bool  LoadSceneFromJSON (SCENE & scn, std::string fileName)
    for (unsigned int index = 0; index < objects.size(); index++) {
       const Json::Value obj = objects[index];
 
-      const Json::Value pos   = obj["position"];
+      const Json::Value pos = obj["position"];
       const Json::Value color = obj["color"];
-      const Json::Value mtl   = obj["material"];
+      const Json::Value mtl = obj["material"];
 
-      scn.AddObject(new SPHERE(
-         obj["radius"].asDouble(),
+      const Json::Value type = obj["type"];
 
-
-         VEC(pos[0].asDouble(), 
-             pos[1].asDouble(),
-             pos[2].asDouble()),
+      if (!strcmp(type.asCString(), "sphere")) {
+         scn.AddObject(new SPHERE(
+            obj["radius"].asDouble(),
 
 
-         MTL(mtl["Ka"].asDouble(),
-             mtl["Ks"].asDouble(),
-             mtl["Kd"].asDouble(),
-             mtl["Phong"].asDouble(),
-             mtl["Refl"].asBool(),
-             mtl["Refr"].asDouble(),
+            VEC(pos[0].asDouble(),
+               pos[1].asDouble(),
+               pos[2].asDouble()),
 
-             RGB(color[0].asUInt(),
-                 color[1].asUInt(),
-                 color[2].asUInt()))));
+
+            MTL(mtl["Ka"].asDouble(),
+               mtl["Ks"].asDouble(),
+               mtl["Kd"].asDouble(),
+               mtl["Phong"].asDouble(),
+               mtl["Refl"].asBool(),
+               mtl["Refr"].asDouble(),
+
+               RGB(color[0].asUInt(),
+                  color[1].asUInt(),
+                  color[2].asUInt()))));
+      } else if (!strcmp(type.asCString(), "plane")) {
+
+         const Json::Value normal = obj["normal"];
+
+         scn.AddObject(new PLANE(
+
+            VEC(normal[0].asDouble(),
+                normal[1].asDouble(),
+                normal[2].asDouble()),
+
+
+            VEC(pos[0].asDouble(),
+               pos[1].asDouble(),
+               pos[2].asDouble()),
+
+
+            MTL(mtl["Ka"].asDouble(),
+               mtl["Ks"].asDouble(),
+               mtl["Kd"].asDouble(),
+               mtl["Phong"].asDouble(),
+               mtl["Refl"].asBool(),
+               mtl["Refr"].asDouble(),
+
+               RGB(color[0].asUInt(),
+                  color[1].asUInt(),
+                  color[2].asUInt()))));
+      }
+      
    }
 
    return true;

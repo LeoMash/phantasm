@@ -86,10 +86,19 @@ RGB Trace (const RAY & ray, const SCENE & scn, int depth)
 
    MTL mtl = inter.obj->GetMaterial();
 
+
+   VEC normalInHit = inter.obj->GetNormal(inter.intersectPoints[0]);
+
+
+   if (mtl.refl && depth < MAX_DEPTH) {
+      return Trace(RAY(inter.intersectPoints[0] + normalInHit * BIAS, -ray.dir.Reflect(normalInHit)), scn, depth + 1);
+   }
+
+
+
    LIGHT * light = (*scn.BeginLights());
 
    VEC lightPos = light->GetPosition();
-   VEC normalInHit = inter.obj->GetNormal(inter.intersectPoints[0]);
    VEC lightDir = (inter.intersectPoints[0] - lightPos).Normalize();
 
    RGB ambColor = mtl.color;

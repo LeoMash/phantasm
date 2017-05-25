@@ -7,6 +7,8 @@
 struct INPUT_PARAMS {
    std::string sceneFile;
    std::string outputImage;
+   int w;
+   int h;
 };
 
 void PrintHelp (void);

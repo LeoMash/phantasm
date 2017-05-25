@@ -15,14 +15,14 @@ CAM::CAM (VEC position, VEC lookAtVec, VEC upVec, double viewAngle, int newWidth
 
 void CAM::SetWH (int newWidth, int newHeight)
 {
-   aspectRatio = newWidth / newHeight;
+   aspectRatio = static_cast<double>(newWidth) / static_cast<double>(newHeight);
 }
 
 
 RAY CAM::GetDirectionRay (double x, double y) const
 {
    if (x < 0.0 || x > 1.0 || y > 1.0 || y < 0.0) {
-      LogMessage(LOGGING_LEVELS::ERROR, "Error in creating ray from camera check x & y : ");
+      LogError("Error in creating ray from camera check x : " + std::to_string(x) + "& y : " + std::to_string(y));
    }
 
    VEC xDir = right * (2.0 * x - 1.0) * aspectRatio * FOVtangent;

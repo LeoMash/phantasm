@@ -5,6 +5,7 @@
 #include "common.h"
 #include "objects\object.h"
 #include "objects\sphere.h"
+#include "objects\plane.h"
 #include "scene\scene.h"
 #include "math\vec.h"
 #include "math\matr.h"

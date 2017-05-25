@@ -169,6 +169,7 @@
     <ClCompile Include="..\..\..\..\src\phantasm-core\material\material.cpp" />
     <ClCompile Include="..\..\..\..\src\phantasm-core\math\matr.cpp" />
     <ClCompile Include="..\..\..\..\src\phantasm-core\objects\object.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\objects\plane.cpp" />
     <ClCompile Include="..\..\..\..\src\phantasm-core\scene\scene.cpp" />
     <ClCompile Include="..\..\..\..\src\phantasm-core\scene_loader\scene_loader.cpp" />
     <ClCompile Include="..\..\..\..\src\phantasm-core\objects\sphere.cpp" />
@@ -191,6 +192,7 @@
     <ClInclude Include="..\..\..\..\src\phantasm-core\math\matr.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\math\vec.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\objects\object.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\objects\plane.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\phm_core_export.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\phm_core.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\scene\scene.h" />

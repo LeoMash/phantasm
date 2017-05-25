@@ -17,8 +17,8 @@ int main (int argc, char * argv[])
 
    LoadSceneFromJSON(scn, params.sceneFile);
    
-   int W = 1500;
-   int H = 500;
+   int W = params.w;
+   int H = params.h;
 
    scn.SetCameraWH(W, H);
 
@@ -31,7 +31,7 @@ int main (int argc, char * argv[])
 
    SaveImageToJpeg(img, params.outputImage);
 
-   LogMessage(LOGGING_LEVELS::INFO, "The work is done!\n");
+   LogInfo("The work is done!\n");
 
    return 0;
 }
