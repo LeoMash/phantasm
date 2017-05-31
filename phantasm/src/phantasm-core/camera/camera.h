@@ -12,7 +12,7 @@ public:
    CAM (void) {}
    ~CAM (void) {}
 
-   CAM (VEC position, VEC lookAtVec, VEC upVec, double viewAngle, int newWidth, int newHeight);
+   CAM (VEC position, VEC lookAtVec, VEC upVec, double viewAngle, int newWidth = 500, int newHeight = 500);
 
    void SetWH (int newWidth, int newHeight);
 

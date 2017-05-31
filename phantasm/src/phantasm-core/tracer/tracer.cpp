@@ -9,8 +9,6 @@
 
 #define BIAS 1e-4
 
-#define MAX_DEPTH 3
-
 
 TRACER::TRACER (void)
 {
@@ -65,10 +63,8 @@ double Clamp (double x)
 }
 
 
-RGB Trace (const RAY & ray, const SCENE & scn, int depth)
+RGB TRACER::Trace (const RAY & ray, const SCENE & scn, int depth)
 {
-   RGB backgroundColor = scn.GetBackgroundColor();
-
    std::vector<INTERSECTION> prms;
 
    FindObjectsIntersections(ray, scn, prms);
@@ -78,20 +74,25 @@ RGB Trace (const RAY & ray, const SCENE & scn, int depth)
    FindMinIntersection(inter, ray, prms);
 
    if (inter.obj == NULL) {
-      return backgroundColor;
+      return scn.GetBackgroundColor();
    }
 
-
-   RGB color = backgroundColor;
-
-   MTL mtl = inter.obj->GetMaterial();
+   return Shade(inter, ray, scn, depth);
+}
 
 
-   VEC normalInHit = inter.obj->GetNormal(inter.intersectPoints[0]);
+RGB TRACER::Shade (const INTERSECTION & hitPoints, const RAY & ray, const SCENE & scn, int depth)
+{
+   RGB color(0, 0, 0);
+
+   MTL mtl = hitPoints.obj->GetMaterial();
 
 
-   if (mtl.refl && depth < MAX_DEPTH) {
-      return Trace(RAY(inter.intersectPoints[0] + normalInHit * BIAS, -ray.dir.Reflect(normalInHit)), scn, depth + 1);
+   VEC normalInHit = hitPoints.obj->GetNormal(hitPoints.intersectPoints[0]);
+
+
+   if (mtl.refl && depth < scn.GetMaxDepth()) {
+      return Trace(RAY(hitPoints.intersectPoints[0] + normalInHit * BIAS, -ray.dir.Reflect(normalInHit)), scn, depth + 1);
    }
 
 
@@ -99,14 +100,14 @@ RGB Trace (const RAY & ray, const SCENE & scn, int depth)
    LIGHT * light = (*scn.BeginLights());
 
    VEC lightPos = light->GetPosition();
-   VEC lightDir = (inter.intersectPoints[0] - lightPos).Normalize();
+   VEC lightDir = (hitPoints.intersectPoints[0] - lightPos).Normalize();
 
    RGB ambColor = mtl.color;
    RGB diffColor;
    RGB specColor;
 
 
-   RAY lightRay(inter.intersectPoints[0] + normalInHit * BIAS, -lightDir);
+   RAY lightRay(hitPoints.intersectPoints[0] + normalInHit * BIAS, -lightDir);
 
    std::vector<INTERSECTION> lightIntersections;
 
@@ -119,13 +120,13 @@ RGB Trace (const RAY & ray, const SCENE & scn, int depth)
    if (lightInt.obj == NULL) {
 
       double diff = Clamp(normalInHit.Dot(-lightDir));
-      
+
       diffColor = mtl.color * diff;
 
 
       VEC r = lightDir.Reflect(normalInHit);
       double spec = Clamp(r.Dot(ray.dir));
-      
+
       specColor = light->GetColor() * pow(spec, mtl.phong);
    }
 
@@ -134,7 +135,6 @@ RGB Trace (const RAY & ray, const SCENE & scn, int depth)
 
    return color;
 }
-
 
 void TRACER::TraceScene (const SCENE & scn, IMAGE_STORAGE & img)
 {

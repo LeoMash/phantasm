@@ -34,7 +34,7 @@ public:
    SCENE (void);
    ~SCENE (void);
 
-   void SetCamera (VEC position, VEC lookAtVec, VEC upVec, double viewAngle, int width = 500, int height = 500);
+   void SetCamera (const CAM & cam);
 
    void SetCameraWH (int W, int H);
 
@@ -42,6 +42,9 @@ public:
 
    void SetBackgroundColor (const RGB & color);
    RGB GetBackgroundColor (void) const;
+
+   void SetMaxDepth (int depth);
+   int GetMaxDepth (void) const;
 
    void AddObject (OBJECT * newObj);
 

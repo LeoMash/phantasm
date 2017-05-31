@@ -67,6 +67,9 @@
     <ClInclude Include="..\..\..\..\3rd-party\src\lodepng\lodepng.h">
       <Filter>3rd-party\lodepng</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\scene_loader\scene_loader_accompanying.h">
+      <Filter>scene_loader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\src\phantasm-core\objects\object.cpp">
@@ -125,6 +128,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\3rd-party\src\lodepng\lodepng.cpp">
       <Filter>3rd-party\lodepng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\scene_loader\scene_loader_accompanying.cpp">
+      <Filter>scene_loader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
