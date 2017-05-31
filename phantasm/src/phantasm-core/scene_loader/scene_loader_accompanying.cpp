@@ -1,3 +1,5 @@
+#include <functional>
+
 #include "objects\sphere.h"
 #include "objects\plane.h"
 
@@ -39,6 +41,8 @@ MTL GetMaterial (const Json::Value & val, const std::string & material, const st
    return  MTL(res["Ka"].asDouble(),
       res["Ks"].asDouble(),
       res["Kd"].asDouble(),
+      res["Kr"].asDouble(),
+      res["Kt"].asDouble(),
       res["Phong"].asDouble(),
       res["Refl"].asBool(),
       res["Refr"].asDouble(),
@@ -66,15 +70,6 @@ void CallForWholeArray (SCENE & scn, const Json::Value & val, const std::string 
    }
 }
 
-void AddLight (const Json::Value & obj, SCENE & scn)
-{
-   const Json::Value type = obj["type"];
-
-   if (!strcmp(type.asCString(), "point")) {
-      AddPointLight(obj, scn);
-   }
-}
-
 
 void AddPlane (const Json::Value & obj, SCENE & scn)
 {
@@ -97,6 +92,17 @@ void AddPointLight (const Json::Value & obj, SCENE & scn)
 {
    scn.AddLight(new POINT_LIGHT(GetVec(obj, "position"), GetColor(obj, "color")));
 }
+
+
+void AddLight (const Json::Value & obj, SCENE & scn)
+{
+   const Json::Value type = obj["type"];
+
+   if (!strcmp(type.asCString(), "point")) {
+      AddPointLight(obj, scn);
+   }
+}
+
 
 void AddObject (const Json::Value & obj, SCENE & scn)
 {

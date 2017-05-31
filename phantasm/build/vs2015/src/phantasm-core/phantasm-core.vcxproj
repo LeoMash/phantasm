@@ -178,6 +178,7 @@
     <ClCompile Include="..\..\..\..\src\phantasm-core\tracer\ray.cpp" />
     <ClCompile Include="..\..\..\..\src\phantasm-core\tracer\tracer.cpp" />
     <ClCompile Include="..\..\..\..\src\phantasm-core\math\vec.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\tracer\tracer_accompanying.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\3rd-party\src\easylogging\easylogging++.h" />
@@ -205,6 +206,7 @@
     <ClInclude Include="..\..\..\..\src\phantasm-core\scene_loader\scene_loader_accompanying.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\tracer\ray.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\tracer\tracer.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\tracer\tracer_accompanying.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

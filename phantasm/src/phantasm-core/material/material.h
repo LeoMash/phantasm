@@ -29,12 +29,14 @@ struct PHM_CORE_API MTL {
    MTL (void);
    ~MTL (void);
 
-   MTL (double ka, double ks, double kd, double phon, bool reflection, double refraction, RGB col);
+   MTL (double ka, double ks, double kd, double kr, double kt, double phon, bool reflection, double refraction, RGB col);
 
 
    double Ka;
    double Ks;
    double Kd;
+   double Kr;
+   double Kt;
    double phong;
 
    bool refl;

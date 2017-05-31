@@ -26,7 +26,7 @@ bool PLANE::Intersect (const RAY & ray, INTERSECTION & intersection) const
 
       double t = p.Dot(normal) / scalProd;
 
-      if (t >= 0) {
+      if (t > EPS) {
          intersection.intersectPoints.push_back(ray.start + ray.dir * t);
          intersection.obj = this;
          return true;

@@ -10,11 +10,8 @@ class PHM_CORE_API TRACER {
 public:
    TRACER (void);
    ~TRACER (void);
-   void TraceScene (const SCENE & scn, IMAGE_STORAGE & img);
 
-private:
-   RGB Shade (const INTERSECTION & hitPoints, const RAY & ray, const SCENE & scn, int depth);
-   RGB Trace (const RAY & ray, const SCENE & scn, int depth);
+   void TraceScene (const SCENE & scn, IMAGE_STORAGE & img);
 };
 
 #endif // _TRACER_H_

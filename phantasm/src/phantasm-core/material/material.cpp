@@ -109,6 +109,6 @@ MTL::~MTL(void)
 }
 
 
-MTL::MTL(double ka, double ks, double kd, double phon, bool reflection, double refraction, RGB col) : Ka(ka), Ks(ks), Kd(kd), phong(phon), refl(reflection), refr(refraction), color(col)
+MTL::MTL(double ka, double ks, double kd, double kr, double kt, double phon, bool reflection, double refraction, RGB col) : Ka(ka), Ks(ks), Kd(kd), Kr(kr), Kt(kt), phong(phon), refl(reflection), refr(refraction), color(col)
 {
 }

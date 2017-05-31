@@ -19,6 +19,6 @@
 #define   DBYTE unsigned short
 #endif // DBYTE
 
-#define EPS 1e-5
+#define EPS 1e-9
 
 #endif // _COMMON_CORE_H_

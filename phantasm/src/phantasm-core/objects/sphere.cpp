@@ -30,8 +30,12 @@ bool SPHERE::Intersect (const RAY & ray, INTERSECTION & intersection) const
       return false;
    }
 
-   intersection.intersectPoints.push_back(ray.start + VEC(ray.dir) * (b - sqrt(d)));
-   intersection.intersectPoints.push_back(ray.start + VEC(ray.dir) * (b + sqrt(d)));
+   if (b - sqrt(d) < 0) {
+      intersection.intersectPoints.push_back(ray.start + ray.dir * (b + sqrt(d)));
+   } else {
+      intersection.intersectPoints.push_back(ray.start + ray.dir * (b - sqrt(d)));
+      intersection.intersectPoints.push_back(ray.start + ray.dir * (b + sqrt(d)));
+   }
    intersection.obj = this;
 
    return true;
