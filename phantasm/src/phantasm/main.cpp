@@ -40,9 +40,8 @@ int main (int argc, char * argv[])
       break;
 
    }
-   
 
-   LogInfo("The work is done!\n");
+   EndLogging();
 
    return 0;
 }

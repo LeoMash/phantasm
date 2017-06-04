@@ -6,37 +6,37 @@
 #include "scene_loader_accompanying.h"
 
 
-int GetInt (const Json::Value & val, const std::string & name)
+static int GetInt (const Json::Value & val, const std::string & name)
 {
    return val[name].asInt();
 }
 
 
-double GetDouble (const Json::Value & val, const std::string & name)
+static double GetDouble (const Json::Value & val, const std::string & name)
 {
    return val[name].asDouble();
 }
 
 
-VEC GetVec (const Json::Value & val, const std::string & name)
+static VEC GetVec (const Json::Value & val, const std::string & name)
 {
-   const Json::Value res = val[name];
+   const Json::Value & res = val[name];
 
    return VEC(res[0].asDouble(), res[1].asDouble(), res[2].asDouble());
 }
 
 
-RGB GetColor (const Json::Value & val, const std::string & name)
+static RGB GetColor (const Json::Value & val, const std::string & name)
 {
-   const Json::Value res = val[name];
+   const Json::Value & res = val[name];
 
    return RGB(res[0].asUInt(), res[1].asUInt(), res[2].asUInt());
 }
 
 
-MTL GetMaterial (const Json::Value & val, const std::string & material, const std::string & color)
+static MTL GetMaterial (const Json::Value & val, const std::string & material, const std::string & color)
 {
-   const Json::Value res = val[material];
+   const Json::Value & res = val[material];
 
    return  MTL(res["Ka"].asDouble(),
       res["Ks"].asDouble(),
@@ -51,9 +51,9 @@ MTL GetMaterial (const Json::Value & val, const std::string & material, const st
 }
 
 
-CAM GetCamera (const Json::Value & val, const std::string & name)
+static CAM GetCamera (const Json::Value & val, const std::string & name)
 {
-   const Json::Value cam = val[name];
+   const Json::Value & cam = val[name];
 
    return CAM(GetVec(cam, "position"),
       GetVec(cam, "lookAt"),
@@ -62,16 +62,7 @@ CAM GetCamera (const Json::Value & val, const std::string & name)
 }
 
 
-void CallForWholeArray (SCENE & scn, const Json::Value & val, const std::string & name, std::function<void(const Json::Value & obj, SCENE & scn)> func)
-{
-   const Json::Value objects = val[name];
-   for (unsigned int index = 0; index < objects.size(); index++) {
-      func(objects[index], scn);
-   }
-}
-
-
-void AddPlane (const Json::Value & obj, SCENE & scn)
+static void AddPlane (const Json::Value & obj, SCENE & scn)
 {
    scn.AddObject(new PLANE(
       GetVec(obj, "normal"),
@@ -80,7 +71,7 @@ void AddPlane (const Json::Value & obj, SCENE & scn)
 }
 
 
-void AddSphere (const Json::Value & obj, SCENE & scn)
+static void AddSphere (const Json::Value & obj, SCENE & scn)
 {
    scn.AddObject(new SPHERE(
       GetDouble(obj, "radius"),
@@ -88,15 +79,15 @@ void AddSphere (const Json::Value & obj, SCENE & scn)
       GetMaterial(obj, "material", "color")));
 }
 
-void AddPointLight (const Json::Value & obj, SCENE & scn)
+static void AddPointLight (const Json::Value & obj, SCENE & scn)
 {
    scn.AddLight(new POINT_LIGHT(GetVec(obj, "position"), GetColor(obj, "color")));
 }
 
 
-void AddLight (const Json::Value & obj, SCENE & scn)
+static void AddLight (const Json::Value & obj, SCENE & scn)
 {
-   const Json::Value type = obj["type"];
+   const Json::Value & type = obj["type"];
 
    if (!strcmp(type.asCString(), "point")) {
       AddPointLight(obj, scn);
@@ -104,9 +95,9 @@ void AddLight (const Json::Value & obj, SCENE & scn)
 }
 
 
-void AddObject (const Json::Value & obj, SCENE & scn)
+static void AddObject (const Json::Value & obj, SCENE & scn)
 {
-   const Json::Value type = obj["type"];
+   const Json::Value & type = obj["type"];
 
    if (!strcmp(type.asCString(), "sphere")) {
       AddSphere(obj, scn);
@@ -122,8 +113,13 @@ void SetScene (const Json::Value & root, SCENE & scn)
    scn.SetBackgroundColor(GetColor(root, "background"));
    scn.SetCamera(GetCamera(root, "camera"));
 
+   for (auto & it : root["lights"]) {
+      AddLight(it, scn);
+   }
 
-   CallForWholeArray(scn, root, "lights", AddLight);
-   CallForWholeArray(scn, root, "objects", AddObject);
+   for (auto & it : root["objects"]) {
+      AddObject(it, scn);
+   }
+
 }
 

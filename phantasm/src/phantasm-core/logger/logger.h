@@ -8,8 +8,8 @@ enum class LOGGING_LEVELS {
    ERROR
 };
 
-
 PHM_CORE_API void StartLogging (void);
+PHM_CORE_API void EndLogging (void);
 
 PHM_CORE_API void LogMessage (LOGGING_LEVELS level, const std::string & msg);
 

@@ -7,7 +7,7 @@
 #define BIAS 1e-5
 
 
-void FindObjectsIntersections (const RAY & ray, const SCENE &scn, std::vector<INTERSECTION> & intersects)
+static void FindObjectsIntersections (const RAY & ray, const SCENE &scn, std::vector<INTERSECTION> & intersects)
 {
    for (auto obj = scn.BeginObjects(); obj != scn.EndObjects(); ++obj) {
       INTERSECTION intersect;
@@ -19,7 +19,7 @@ void FindObjectsIntersections (const RAY & ray, const SCENE &scn, std::vector<IN
 }
 
 
-void FindMinIntersection (INTERSECTION & res, const RAY & ray, const std::vector<INTERSECTION> & intersects)
+static void FindMinIntersection (INTERSECTION & res, const RAY & ray, const std::vector<INTERSECTION> & intersects)
 {
    double minDist = INF;
 
@@ -37,7 +37,7 @@ void FindMinIntersection (INTERSECTION & res, const RAY & ray, const std::vector
    }
 }
 
-double Clamp (double x)
+static double Clamp (double x)
 {
    if (x < 0.0) {
       return 0.0;
@@ -46,7 +46,7 @@ double Clamp (double x)
 }
 
 
-RGB ComputeShadows (const SCENE & scn, const VEC & hitPoint, const VEC & normalInHit, const MTL & mtl, const RAY & ray)
+static RGB ComputeShadows (const SCENE & scn, const VEC & hitPoint, const VEC & normalInHit, const MTL & mtl, const RAY & ray)
 {
    RGB color(0, 0, 0);
 
@@ -94,7 +94,7 @@ RGB ComputeShadows (const SCENE & scn, const VEC & hitPoint, const VEC & normalI
 
 
 
-RGB Shade (const INTERSECTION & hitPoints, const RAY & ray, const SCENE & scn, int depth)
+static RGB Shade (const INTERSECTION & hitPoints, const RAY & ray, const SCENE & scn, int depth)
 {
    RGB color(0, 0, 0);
    MTL mtl = hitPoints.obj->GetMaterial();

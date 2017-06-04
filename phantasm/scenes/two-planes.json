@@ -83,6 +83,25 @@
            "radius":   5.0
        },
 
+      {
+           "type" :    "sphere",
+           "position": [-9.0, 10.0, -4.0],
+           "material": 
+                       {
+                        "Ka"    : 0.3, 
+                        "Ks"    : 0.4, 
+                        "Kd"    : 0.5, 
+                        "Kr"    : 0.2, 
+                        "Kt"    : 0.6,
+                        "Phong" : 10.0, 
+                        "Refl"  : true, 
+                        "Refr"  : 1.5
+                       },
+           "color":    [100, 100, 100], 
+           "radius":   5.0
+       },
+
+
 
       {
            "type" :    "plane",

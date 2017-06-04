@@ -1,21 +1,50 @@
-#define _ELPP_NO_DEFAULT_LOG_FILE
-
 #include <easylogging++.h>
 
+
 #include "logger.h"
+
 
 INITIALIZE_EASYLOGGINGPP
 
 
-PHM_CORE_API void StartLogging (void)
+static double  PCFreq       = 0.0;
+static __int64 CounterStart = 0;
+
+static void StartCounter (void)
 {
+   LARGE_INTEGER li;
+   if (!QueryPerformanceFrequency(&li))
+      LOG(ERROR) << "QueryPerformanceFrequency failed!";
 
-   el::Loggers::configureFromGlobal("logging.conf");
+   PCFreq = double(li.QuadPart) / 1000.0;
 
-   LOG(INFO) << "Starting...";
-
+   QueryPerformanceCounter(&li);
+   CounterStart = li.QuadPart;
 }
 
+
+static double GetCounter (void)
+{
+   LARGE_INTEGER li;
+   QueryPerformanceCounter(&li);
+   return double(li.QuadPart - CounterStart) / PCFreq;
+}
+
+
+PHM_CORE_API void StartLogging (void)
+{
+   el::Loggers::reconfigureAllLoggers(el::Configurations("logging.conf"));
+
+   LOG(INFO) << "Starting...";
+   StartCounter();
+}
+
+PHM_CORE_API void EndLogging (void)
+{
+   double duration = GetCounter();
+   LOG(INFO) << "Duration is " + std::to_string(duration) + " ms";
+   LOG(INFO) << "The work is done!";
+}
 
 PHM_CORE_API void LogMessage (LOGGING_LEVELS level, const std::string & msg)
 {
