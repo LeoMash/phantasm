@@ -7,27 +7,31 @@
 INITIALIZE_EASYLOGGINGPP
 
 
-static double  PCFreq       = 0.0;
-static __int64 CounterStart = 0;
+static double  Frequency       = 0.0;
+static __int64 counterStart = 0;
 
 static void StartCounter (void)
 {
    LARGE_INTEGER li;
-   if (!QueryPerformanceFrequency(&li))
-      LOG(ERROR) << "QueryPerformanceFrequency failed!";
 
-   PCFreq = double(li.QuadPart) / 1000.0;
+   if (!QueryPerformanceFrequency(&li)) {
+      LOG(ERROR) << "QueryPerformanceFrequency failed!";
+   }
+
+   Frequency = static_cast<double>(li.QuadPart) / 1000.0;
 
    QueryPerformanceCounter(&li);
-   CounterStart = li.QuadPart;
+   counterStart = li.QuadPart;
 }
 
 
 static double GetCounter (void)
 {
    LARGE_INTEGER li;
+
    QueryPerformanceCounter(&li);
-   return double(li.QuadPart - CounterStart) / PCFreq;
+
+   return static_cast<double>(li.QuadPart - counterStart) / Frequency;
 }
 
 
