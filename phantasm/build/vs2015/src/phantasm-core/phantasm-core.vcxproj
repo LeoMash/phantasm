@@ -95,8 +95,9 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;PHANTASMCORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_WINDOWS;_USRDLL;PHANTASMCORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\..\..\..\3rd-party\include;..\..\..\..\src\phantasm-core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -109,8 +110,9 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;PHANTASMCORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ELPP_FEATURE_PERFORMANCE_TRACKING;ELPP_PERFORMANCE_MICROSECONDS;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;PHANTASMCORE_EXPORTS;_DEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\..\..\..\3rd-party\include;..\..\..\..\src\phantasm-core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -125,8 +127,9 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;PHANTASMCORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ELPP_FEATURE_PERFORMANCE_TRACKING;ELPP_PERFORMANCE_MICROSECONDS;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_WINDOWS;_USRDLL;PHANTASMCORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\..\..\..\3rd-party\include;..\..\..\..\src\phantasm-core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -143,8 +146,9 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;PHANTASMCORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>ELPP_FEATURE_PERFORMANCE_TRACKING;ELPP_PERFORMANCE_MICROSECONDS;_USE_MATH_DEFINES;_CRT_SECURE_NO_WARNINGS;PHANTASMCORE_EXPORTS;NDEBUG;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\..\..\..\3rd-party\include;..\..\..\..\src\phantasm-core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -154,11 +158,55 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\src\phantasm-core\stub.cpp" />
+    <ClCompile Include="..\..\..\..\3rd-party\src\easylogging\easylogging++.cc" />
+    <ClCompile Include="..\..\..\..\3rd-party\src\jpeg-compressor\jpge.cpp" />
+    <ClCompile Include="..\..\..\..\3rd-party\src\jsoncpp\jsoncpp.cpp" />
+    <ClCompile Include="..\..\..\..\3rd-party\src\lodepng\lodepng.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\camera\camera.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\image_saver\image_saver.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\image_storage\image_storage.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\light\light.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\logger\logger.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\material\material.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\math\matr.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\objects\object.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\objects\plane.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\scene\scene.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\scene_loader\scene_loader.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\objects\sphere.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\scene_loader\scene_loader_accompanying.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\tracer\ray.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\tracer\tracer.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\math\vec.cpp" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\tracer\tracer_accompanying.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\3rd-party\src\easylogging\easylogging++.h" />
+    <ClInclude Include="..\..\..\..\3rd-party\src\jpeg-compressor\jpge.h" />
+    <ClInclude Include="..\..\..\..\3rd-party\src\jsoncpp\json\json-forwards.h" />
+    <ClInclude Include="..\..\..\..\3rd-party\src\jsoncpp\json\json.h" />
+    <ClInclude Include="..\..\..\..\3rd-party\src\lodepng\lodepng.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\camera\camera.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\common.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\image_saver\image_saver.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\image_storage\image_storage.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\light\light.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\logger\logger.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\material\material.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\math\matr.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\math\vec.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\objects\object.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\objects\plane.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\phm_core_export.h" />
     <ClInclude Include="..\..\..\..\src\phantasm-core\phm_core.h" />
-    <ClInclude Include="..\..\..\..\src\phantasm-core\stub.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\scene\scene.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\scene\scene.hpp" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\scene_loader\scene_loader.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\objects\sphere.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\scene_loader\scene_loader_accompanying.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\tracer\ray.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\tracer\tracer.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\tracer\tracer_accompanying.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

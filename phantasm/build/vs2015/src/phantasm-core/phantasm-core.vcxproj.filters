@@ -1,10 +1,192 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\src\phantasm-core\stub.cpp" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\phm_core.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\phm_core_export.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\common.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm-core\objects\object.h">
+      <Filter>objects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\objects\sphere.h">
+      <Filter>objects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\tracer\tracer.h">
+      <Filter>tracer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\scene\scene.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\scene_loader\scene_loader.h">
+      <Filter>scene_loader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\image_storage\image_storage.h">
+      <Filter>image_storage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\image_saver\image_saver.h">
+      <Filter>image_saver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\tracer\ray.h">
+      <Filter>tracer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\material\material.h">
+      <Filter>material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\3rd-party\src\jsoncpp\json\json.h">
+      <Filter>3rd-party\jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\3rd-party\src\jsoncpp\json\json-forwards.h">
+      <Filter>3rd-party\jsoncpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\3rd-party\src\jpeg-compressor\jpge.h">
+      <Filter>3rd-party\jpeg-compressor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\3rd-party\src\easylogging\easylogging++.h">
+      <Filter>3rd-party\easylogging</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\logger\logger.h">
+      <Filter>logger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\math\vec.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\math\matr.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\camera\camera.h">
+      <Filter>camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\light\light.h">
+      <Filter>light</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\scene\scene.hpp">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\objects\plane.h">
+      <Filter>objects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\3rd-party\src\lodepng\lodepng.h">
+      <Filter>3rd-party\lodepng</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\scene_loader\scene_loader_accompanying.h">
+      <Filter>scene_loader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\src\phantasm-core\tracer\tracer_accompanying.h">
+      <Filter>tracer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\src\phantasm-core\stub.h" />
-    <ClInclude Include="..\..\..\..\src\phantasm-core\phm_core.h" />
+    <ClCompile Include="..\..\..\..\src\phantasm-core\objects\object.cpp">
+      <Filter>objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\image_storage\image_storage.cpp">
+      <Filter>image_storage</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\math\vec.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\objects\sphere.cpp">
+      <Filter>objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\tracer\tracer.cpp">
+      <Filter>tracer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\scene\scene.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\scene_loader\scene_loader.cpp">
+      <Filter>scene_loader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\image_saver\image_saver.cpp">
+      <Filter>image_saver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\tracer\ray.cpp">
+      <Filter>tracer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\3rd-party\src\jsoncpp\jsoncpp.cpp">
+      <Filter>3rd-party\jsoncpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\3rd-party\src\jpeg-compressor\jpge.cpp">
+      <Filter>3rd-party\jpeg-compressor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\3rd-party\src\easylogging\easylogging++.cc">
+      <Filter>3rd-party\easylogging</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\logger\logger.cpp">
+      <Filter>logger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\math\matr.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\camera\camera.cpp">
+      <Filter>camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\light\light.cpp">
+      <Filter>light</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\material\material.cpp">
+      <Filter>material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\objects\plane.cpp">
+      <Filter>objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\3rd-party\src\lodepng\lodepng.cpp">
+      <Filter>3rd-party\lodepng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\scene_loader\scene_loader_accompanying.cpp">
+      <Filter>scene_loader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\src\phantasm-core\tracer\tracer_accompanying.cpp">
+      <Filter>tracer</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="math">
+      <UniqueIdentifier>{4a6a93f4-ea1f-4769-9445-b5c68a81b7ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="objects">
+      <UniqueIdentifier>{ebf73b9a-16ef-42e2-9740-02bb76c933ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scene">
+      <UniqueIdentifier>{363b7f6b-d153-4a5e-8ee3-42c6de71ce44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scene_loader">
+      <UniqueIdentifier>{2c69a2b7-cb4a-4a0e-a2d1-bd2f84e65c3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tracer">
+      <UniqueIdentifier>{bf513b6b-2084-4bbe-817d-35f670189d12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="image_storage">
+      <UniqueIdentifier>{01117fbc-75a4-4174-8aa3-3c8537f44cc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="image_saver">
+      <UniqueIdentifier>{c069e356-5669-4197-b55a-359960544f48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="material">
+      <UniqueIdentifier>{91660af6-647f-4701-9b85-31a98acde991}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rd-party">
+      <UniqueIdentifier>{dc681a2e-c1ea-4f6e-aff0-7f3d9b5067b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rd-party\jsoncpp">
+      <UniqueIdentifier>{35b727cb-6dca-4ff5-9ce3-29d9918016f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rd-party\jpeg-compressor">
+      <UniqueIdentifier>{f399d9a2-7bc9-43fc-8ac7-9432b0dc5e2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rd-party\easylogging">
+      <UniqueIdentifier>{355b2191-7894-4ea4-bc9b-9691a7b4ad92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="logger">
+      <UniqueIdentifier>{fde07af6-b4d0-4e67-97e0-f9c64ab76c32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="camera">
+      <UniqueIdentifier>{e697b3cf-dcfe-4309-b07e-1d05433ab2c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="light">
+      <UniqueIdentifier>{bbf15b01-cccb-48da-a82e-0944ff71c06a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3rd-party\lodepng">
+      <UniqueIdentifier>{b7594f57-2a43-4e58-8d9e-acbb03fa0d90}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

@@ -158,12 +158,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\src\phantasm\console\console.cpp" />
     <ClCompile Include="..\..\..\..\src\phantasm\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\phantasm-core\phantasm-core.vcxproj">
       <Project>{917b79bc-712c-4764-92cc-e7045fce4d28}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\src\phantasm\common.h" />
+    <ClInclude Include="..\..\..\..\src\phantasm\console\console.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

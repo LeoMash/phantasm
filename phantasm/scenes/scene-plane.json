@@ -1,0 +1,83 @@
+{
+   "depth" : 3,
+
+   "background" : [255, 0, 255],
+
+   "camera": 
+       {
+        "position" : [0, 0, -20],
+        "lookAt"   : [0, 0, 0],
+        "up"       : [0, 1, 0],
+        "viewAngle": 90
+       },
+
+   "lights": 
+       [
+          {
+           "type"     : "point",
+           "position" : [10, -10, -10],
+           "color"    : [255, 255, 255]
+          }
+
+       ],
+
+   "objects": 
+      [                        
+       {
+           "type" :    "sphere",
+           "position": [4.0, 0.0, 30.0],
+           "material": 
+                       {
+                        "Ka"    : 0.3, 
+                        "Ks"    : 0.4, 
+                        "Kd"    : 0.5,  
+                        "Kr"    : 0.0, 
+                        "Kt"    : 0.0,
+                        "Phong" : 10.0, 
+                        "Refl"  : false, 
+                        "Refr"  : 0.0
+                       },
+           "color":    [0, 0, 255], 
+           "radius":   5.0
+       },
+
+       {
+           "type" :    "sphere",
+           "position": [-9.0, 0.0, -4.0],
+           "material": 
+                       {
+                        "Ka"    : 0.3, 
+                        "Ks"    : 0.4, 
+                        "Kd"    : 0.5,   
+                        "Kr"    : 0.0, 
+                        "Kt"    : 0.0,
+                        "Phong" : 10.0, 
+                        "Refl"  : false, 
+                        "Refr"  : 0.0
+                       },
+           "color":    [0, 255, 0], 
+           "radius":   5.0
+       },
+
+      {
+           "type" :    "plane",
+           "position": [0.0, 10.0, 0.0],
+           "material": 
+                       {
+                        "Ka"    : 0.3, 
+                        "Ks"    : 0.4, 
+                        "Kd"    : 0.5,   
+                        "Kr"    : 0.0, 
+                        "Kt"    : 0.0,
+                        "Phong" : 10.0, 
+                        "Refl"  : false, 
+                        "Refr"  : 0.0
+                       },
+           "color":    [255, 0, 0], 
+           "normal":   [0, -1, 0]
+       }
+
+
+     ]
+}
+
